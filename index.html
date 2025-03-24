@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Romain</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">Portfolio</div>
+            <div class="menu-toggle">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#a-propos">À Propos</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Section Accueil -->
+    <section class="hero" id="accueil">
+        <div id="particles-js"></div>
+        <div class="hero-content">
+            <h1 class="name">Romain LEON</h1>
+            <h2 class="title">Étudiant en BUT 2 en Réseaux & Télécommunications</h2>
+            <p class="subtitle">Spécialisé en administration systèmes et réseaux, je conçois et maintiens des infrastructures réseau sécurisées et performantes.</p>
+            <div class="hero-buttons">
+                <a href="assets/Curriculum_vitae.pdf" class="btn secondary-btn" download>
+                    <i class="fas fa-download"></i>
+                    Télécharger CV
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À Propos -->
+    <section id="a-propos" class="about">
+        <div class="container">
+            <h2>À Propos de Moi</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Je suis un étudiant passionné par les réseaux et l'informatique. Mon objectif est de devenir technicien réseau et de contribuer à la conception, la mise en place et la maintenance d'infrastructures réseau performantes et sécurisées.</p>
+                    <div class="education">
+                        <h3>Formation</h3>
+                        <ul>
+                            <li>BUT Réseaux et Télécommunications - En cours...</li>
+                            <li>Certification MOOC - 2023</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="images/profil2.avif" alt="Photo de profil">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section id="competences" class="skills">
+        <div class="container">
+            <h2>Mes Compétences</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Réseaux</h3>
+                    <p>TCP/IP, VLAN, Routage, Switching</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Sécurité</h3>
+                    <p>Firewall, Sécurité réseau</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-server"></i>
+                    <h3>Systèmes</h3>
+                    <p>Windows Server, Linux, Active Directory</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Maintenance</h3>
+                    <p>Dépannage, Monitoring, Réseaux, Documentation</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Virtualisation</h3>
+                    <p>VMware, VirtualBox, Hyper-V</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projets" class="projects">
+        <div class="container">
+            <h2>Mes Projets</h2>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projets récents (visibles par défaut) -->
+                <div class="project-card">
+                    <img src="images/Cacti/Cacti.png" alt="Cacti">
+                    <h3>Traitement des données</h3>
+                    <p>Mise en place et configuration d'un système de monitoring réseau avec Cacti</p>
+                    <button class="project-link" data-project="Cacti">Voir le projet</button>
+                </div>
+                
+                <div class="project-card">
+                    <img src="images/Mysql/MySQL.jpg" alt="Mysql">
+                    <h3>Gestion d'un Système de Bases de Données Mysql</h3>
+                    <p>Configuration et maintenance d'une infrastructure réseau, gestion des services et des utilisateurs.</p>
+                    <button class="project-link" data-project="Mysql">Voir le projet</button>
+                </div>
+                <!-- <div class="project-card">
+                    <img src="images/sae15.png" alt="SAE 1.5">
+                    <h3>SAE 1.5 - Traitement de données</h3>
+                    <p>Analyse et automatisation du traitement de données réseau, création de scripts et rapports.</p>
+                    <button class="project-link" data-project="sae15">Voir le projet</button>
+                </div> -->
+
+
+                <!-- Projets cachés -->
+                <div class="project-card hidden-project" style="display: flex;">
+                    <img src="images/ActiveDirectory/ActiveDirectory.jpg" alt="ActiveDirectory">
+                    <h3>Active Directory</h3>
+                    <p>Création d'une présence en ligne professionnelle et gestion de l'identité numérique.</p>
+                    <button class="project-link" data-project="ActiveDirectory">Voir le projet</button>
+                </div>
+                <!-- <div class="project-card hidden-project">
+                    <img src="images/sae13.jpg" alt="SAE 1.3">
+                    <h3>SAE 1.3 - Construction d'un réseau local</h3>
+                    <p>Conception et implémentation d'un réseau local avec routage et tests de connectivité.</p>
+                    <button class="project-link" data-project="sae13">Voir le projet</button>
+                </div> -->
+                <!-- <div class="project-card hidden-project">
+                    <img src="images/sae12.jpg" alt="SAE 1.2">
+                    <h3>SAE 1.2 - Découverte du réseau d'entreprise</h3>
+                    <p>Analyse d'une infrastructure réseau existante et documentation des services.</p>
+                    <button class="project-link" data-project="sae12">Voir le projet</button>
+                </div> -->
+                <!-- <div class="project-card hidden-project">
+                    <img src="images/sae11.jpg" alt="SAE 1.1">
+                    <h3>SAE 1.1 - Installation d'un poste de travail</h3>
+                    <p>Configuration d'un poste de travail et mise en place d'une solution de virtualisation.</p>
+                    <button class="project-link" data-project="sae11">Voir le projet</button>
+                </div> -->
+                <!-- <div class="project-card hidden-project">
+                    <img src="images/sae22.jpg" alt="SAE 2.2">
+                    <h3>SAE 2.2 - Sécurité des réseaux</h3>
+                    <p>Mise en place de solutions de sécurité réseau et analyse des vulnérabilités.</p>
+                    <button class="project-link" data-project="sae22">Voir le projet</button>
+                </div> -->
+                <!-- <div class="project-card hidden-project">
+                    <img src="images/sae23.jpg" alt="SAE 2.3">
+                    <h3>SAE 2.3 - Services réseaux avancés</h3>
+                    <p>Déploiement de services réseau avancés et haute disponibilité.</p>
+                    <button class="project-link" data-project="sae23">Voir le projet</button>
+                </div> -->
+                <!-- <div class="project-card hidden-project">
+                    <img src="images/sae23.jpg" alt="SAE 2.3">
+                    <h3>SAE 2.3 - Services réseaux avancés</h3>
+                    <p>Déploiement de services réseau avancés et haute disponibilité.</p>
+                    <button class="project-link" data-project="sae23">Voir le projet</button>
+                </div> -->
+            </div>
+            <div class="projects-button-container">
+                <button id="show-all-projects" class="btn primary-btn">Voir tous les projets</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modales des projets -->
+    <div class="modal" id="CactiModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Traitement des données</h2>
+            <img src="images/Cacti/cacti.png" alt="Cacti" class="modal-image">
+            <div class="project-details">
+                <h3>Description du Projet</h3>
+                <p>Dans ce projet, j'ai configuré un environnement réseau virtuel avec virtualbox comprenant trois machines virtuelles : deux en réseau interne (Debian) et une en NAT (Ubuntu). J'ai assuré la connectivité entre ces machines via des routes configurées manuellement et la translation d'adresses réseau (NAT). J'ai également déployé l'outil de supervision Cacti pour surveiller les performances et l'état des équipements réseau.</p>
+                
+                <h3>Compétences Développées</h3>
+                <ul>
+                    <li>Administration réseau : Configuration des adresses IP, routage, et mise en place du NAT pour assurer la communication entre les machines virtuelles et l'accès à Internet.</li>
+                    <li>Supervision des systèmes : Installation, configuration et utilisation de Cacti pour suivre l'état des équipements.</li>
+                    <li>Administration système : Gestion des services critiques tels qu'Apache, MariaDB et PHP, et optimisation des configurations système.</li>
+                    <li>Gestion de projet IT : Structuration des étapes du projet, résolution de problèmes réseau et documentation claire des actions entreprises.</li>
+                </ul>
+    
+                <!-- Galerie d'images -->
+                <h3>Galerie du Projet</h3>
+                <div class="gallery">
+                    <img src="images/Cacti/cactiP1.jpg" alt="Projet 1" class="gallery-thumbnail">
+                    <img src="images/Cacti/cactiP2.jpg" alt="Projet 2" class="gallery-thumbnail">
+                    <img src="images/Cacti/cactiP3.jpg" alt="Projet 3" class="gallery-thumbnail">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+     <!-- Projet Mysql -->
+     <div class="modal" id="MysqlModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Gestion d'un Système de Bases de Données MySQL</h2>
+            <img src="images/Mysql/MySQL.jpg" alt="MySQL" class="modal-image">
+            <div class="project-details">
+                <h3>Description du Projet</h3>
+                <p>Ce projet consistait à mettre en place et gérer un système de bases de données MySQL dans un environnement professionnel. J'ai configuré le serveur MySQL, créé et optimisé des bases de données, et mis en place des procédures de sauvegarde et de restauration.</p>
+                
+                <h3>Étapes clés du projet</h3>
+                <div class="project-steps">
+                    <div class="step">
+                        <div class="step-header">
+                            <i class="fas fa-database"></i>
+                            <h4>1. Création de la base de données</h4>
+                        </div>
+                        <div class="step-content">
+                            <ul>
+                                <li>Mise en place de la base de données "Amazon" avec des tables interconnectées</li>
+                                <li>Implémentation des relations via clés primaires et étrangères</li>
+                                <li>Insertion de jeux de données pour simulation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-header">
+                            <i class="fas fa-code"></i>
+                            <h4>2. Procédures et Triggers</h4>
+                        </div>
+                        <div class="step-content">
+                            <ul>
+                                <li>Développement d'une procédure stockée pour la gestion des clients</li>
+                                <li>Implémentation d'un trigger de surveillance des stocks</li>
+                                <li>Tests et validation des automatisations</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-header">
+                            <i class="fas fa-user-shield"></i>
+                            <h4>3. Gestion des droits utilisateurs</h4>
+                        </div>
+                        <div class="step-content">
+                            <ul>
+                                <li>Configuration des profils "gestionnaire" et "consultant"</li>
+                                <li>Mise en place des restrictions d'accès aux tables</li>
+                                <li>Tests de sécurité et validation des permissions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-header">
+                            <i class="fas fa-sync-alt"></i>
+                            <h4>4. Réplication bidirectionnelle</h4>
+                        </div>
+                        <div class="step-content">
+                            <ul>
+                                <li>Configuration maître-esclave pour la synchronisation</li>
+                                <li>Mise en place de la réplication en temps réel</li>
+                                <li>Tests de performance et de fiabilité</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Compétences Développées</h3>
+                <ul>
+                    <li>Administration de bases de données : Installation et configuration de MySQL, gestion des utilisateurs et des permissions</li>
+                    <li>Optimisation : Analyse et amélioration des performances des requêtes et de la structure des bases de données</li>
+                    <li>Sécurité : Mise en place de politiques de sécurité et de contrôle d'accès</li>
+                    <li>Maintenance : Création de procédures de sauvegarde et de restauration automatisées</li>
+                </ul>
+    
+                <!-- Galerie d'images -->
+                <h3>Galerie du Projet</h3>
+                <div class="gallery">
+                    <img src="images/Mysql/MysqlP1.jpg" alt="Configuration MySQL" class="gallery-thumbnail">
+                    <img src="images/Mysql/MysqlP2.jpg" alt="Gestion des bases" class="gallery-thumbnail">
+                    <img src="images/Mysql/MysqlP3.jpg" alt="Administration MySQL" class="gallery-thumbnail">
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Projet ActiveDirectory -->
+        <div class="modal" id="ActiveDirectoryModal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Active Directory</h2>
+                <img src="images/ActiveDirectory/ActiveDirectory.jpg" alt="Active Directory" class="modal-image">
+                <div class="project-details">
+                    <h3>Description du Projet</h3>
+                    <p>Ce projet consistait à configurer un environnement Active Directory sur une VM Windows Server 2016 pour centraliser la gestion des utilisateurs, des groupes, et des politiques réseau. L’objectif était de déployer un contrôleur de domaine, créer des unités d’organisation (UO) avec des groupes et des utilisateurs, ajouter des postes au domaine, et appliquer des stratégies de groupe (GPO) pour la gestion des accès.</p>
+                    
+                    <h3>Étapes clés du projet</h3>
+                    <div class="project-steps">
+                        <div class="step">
+                            <div class="step-header">
+                                <i class="fa-solid fa-laptop"></i>
+                                <h4>1. Création et configuration des machines virtuelles :</h4>
+                            </div>
+                            <div class="step-content">
+                                <ul>
+                                    <li>Installation de Windows Server 2016 sur VirtualBox et configuration des paramètres réseau.</li>
+                                    <li>Clonage de la machine pour simuler un environnement réseau avec plusieurs serveurs.</li>
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div class="step">
+                            <div class="step-header">
+                                <i class="fas fa-network-wired"></i>
+                                <h4>2. Déploiement d'Active Directory :</h4>
+                            </div>
+                            <div class="step-content">
+                                <ul>
+                                    <li>Installation des services de domaine Active Directory (AD DS) et promotion en contrôleur de domaine.</li>
+                                    <li>Configuration du domaine rtdomtest.com avec gestion des unités d'organisation, groupes, et utilisateurs.</li>  
+
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div class="step">
+                            <div class="step-header">
+                                <i class="fa-solid fa-users"></i>
+                                <h4>3. Ajout de postes au domaine :</h4>
+                            </div>
+                            <div class="step-content">
+                                <ul>
+                                    <li>Modification des paramètres réseau pour joindre un poste client au domaine.</li>
+                                    <li>Tests de connectivité et authentification avec les comptes utilisateur créés.</li>
+                                </ul>
+                            </div>
+                        </div>
+    
+                        <div class="step">
+                            <div class="step-header">
+                                <i class="fas fa-sync-alt"></i>
+                                <h4>4. Gestion des GPO (Group Policy Object) :</h4>
+                            </div>
+                            <div class="step-content">
+                                <ul>
+                                    <li>Création d'une stratégie de groupe pour restreindre l'accès au lecteur C: uniquement pour le groupe « Étudiant ».</li>
+                                    <li>Application ciblée des politiques à un groupe spécifique via des permissions de filtrage</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <h3>Compétences Développées</h3>
+                    <ul>
+                        <li>Administration Windows Server : Installation et configuration de MySQL, gestion des utilisateurs et des permissions</li>
+                        <li>Gestion des utilisateurs et des groupes : Création d'unités d'organisation (UO), de groupes et d'utilisateurs dans Active Directory. Attribution de permissions et gestion des accès via des stratégies de groupe.</li>
+                        <li>Réseaux et connectivité : Configuration des adresses IP statiques et paramètres DNS pour assurer la connectivité au domaine. Résolution des problèmes liés aux SID des machines clonées.</li>
+                        <li>Supervision et sécurité : Application de GPO pour restreindre ou personnaliser les accès utilisateur. Tests de fonctionnalité et dépannage réseau dans un environnement simulé.</li>
+                        <li>Collaboration et documentation : Travail structuré basé sur des scénarios réalistes pour simuler un réseau d'entreprise. Rédaction de procédures détaillées pour garantir la reproductibilité.</li>
+                    </ul>
+        
+                    <!-- Galerie d'images -->
+                    <h3>Galerie du Projet</h3>
+                    <div class="gallery">
+                        <img src="images/ActiveDirectory/ActiveDirectoryP1.jpg" alt="Configuration Active Directory" class="gallery-thumbnail">
+                        <img src="images/ActiveDirectory/ActiveDirectoryP2.jpg" alt="Gestion des utilisateurs" class="gallery-thumbnail">
+                        <img src="images/ActiveDirectory/ActiveDirectoryP3.jpg" alt="Administration Active Directory" class="gallery-thumbnail">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Un seul modal pour afficher l'image en grand -->
+    <div id="imageModal" class="modal">
+        <span class="close-image-modal">&times;</span>
+        <img class="modal-enlarged-image" id="enlargedImage">
+    </div>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Me Contacter</h2>
+            <div class="contact-content">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Votre message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Envoyer</button>
+                </form>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/votre-profil" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/votre-compte" class="social-link"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Portfolio - LÉON Romain</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": ["#3498db", "#2980b9", "#34495e", "#87CEEB"]
+                },
+                "shape": {
+                    "type": "circle"
+                },
+                "opacity": {
+                    "value": 0.6,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 2,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#3498db",
+                    "opacity": 0.5,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 4,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": true,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1,
+                            "color": "#87CEEB"
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
