@@ -1,19 +1,74 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Romain</title>
+    <meta name="description" content="Portfolio de Romain LEON, étudiant en Réseaux & Télécommunications">
+    <meta name="keywords" content="portfolio, réseaux, télécoms, compétences, projets">
+    <meta property="og:title" content="Portfolio de Romain LEON">
+    <meta property="og:description" content="Portfolio spécialisé en réseaux et télécommunications">
+    <meta property="og:image" content="images/preview.png">
+    <meta name="author" content="Romain LEON">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        /* Style pour les projets */
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        /* Style pour les boutons de filtrage */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            background: var(--card-bg);
+            border: 2px solid var(--accent-color);
+            color: var(--text-color);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn.active {
+            background: var(--accent-color);
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
-    
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-            <div class="logo">Portfolio</div>
+            <div class="logo">
+                <img src="images/logo/portfolio.png" alt="Portfolio Romain LEON" class="logo-image">
+            </div>
             <div class="menu-toggle">
                 <div class="hamburger">
                     <span></span>
@@ -42,7 +97,8 @@
         <div class="hero-content">
             <h1 class="name">Romain LEON</h1>
             <h2 class="title">Étudiant en BUT 2 en Réseaux & Télécommunications</h2>
-            <p class="subtitle">Spécialisé en administration systèmes et réseaux, je conçois et maintiens des infrastructures réseau sécurisées et performantes.</p>
+            <p class="subtitle">Spécialisé en administration systèmes et réseaux, je conçois et maintiens des
+                infrastructures réseau sécurisées et performantes.</p>
             <div class="hero-buttons">
                 <a href="assets/Curriculum_vitae.pdf" class="btn secondary-btn" download>
                     <i class="fas fa-download"></i>
@@ -52,25 +108,104 @@
         </div>
     </section>
 
+
     <!-- Section À Propos -->
     <section id="a-propos" class="about">
         <div class="container">
             <h2>À Propos de Moi</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Je suis un étudiant passionné par les réseaux et l'informatique. Mon objectif est de devenir technicien réseau et de contribuer à la conception, la mise en place et la maintenance d'infrastructures réseau performantes et sécurisées.</p>
-                    <div class="education">
-                        <h3>Formation</h3>
-                        <ul>
-                            <li>BUT Réseaux et Télécommunications - En cours...</li>
-                            <li>Certification MOOC - 2023</li>
-                        </ul>
+            <p class="intro">
+                Étudiant passionné par les <strong>réseaux</strong> et <strong>l'informatique</strong>, je m'engage à
+                concevoir des infrastructures performantes et sécurisées. Mon objectif est de devenir un expert en
+                administration systèmes et réseaux.
+            </p>
+
+            <!-- Expertise Technique -->
+            <div class="expertise">
+                <h3><i class="fas fa-tools"></i> Mon Expertise</h3>
+                <ul class="expertise-list">
+                    <li><i class="fas fa-network-wired"></i> Configurer et maintenir des équipements réseau
+                        (<strong>Cisco</strong>)</li>
+                    <li><i class="fas fa-shield-alt"></i> Sécuriser les infrastructures avec des
+                        <strong>firewalls</strong> et outils de supervision
+                    </li>
+                    <li><i class="fas fa-server"></i> Administrer des serveurs <strong>Windows</strong> et
+                        <strong>Linux</strong>
+                    </li>
+                    <li><i class="fas fa-project-diagram"></i> Virtualiser des environnements avec
+                        <strong>VMware</strong> et <strong>Virtualbox</strong>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Soft Skills -->
+            <div class="expertise">
+                <h3><i class="fas fa-user-shield"></i> Mes Soft Skills</h3>
+                <ul class="expertise-list">
+                    <li><i class="fas fa-check-circle"></i> Résoudre efficacement des problèmes techniques</li>
+                    <li><i class="fas fa-check-circle"></i> Collaborer en équipe projet</li>
+                    <li><i class="fas fa-check-circle"></i> Rédiger une documentation technique claire</li>
+                </ul>
+            </div>
+
+            <!-- Parcours Académique -->
+            <div class="timeline">
+                <h3><i class="fas fa-history"></i> Parcours Académique</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023–2026</div>
+                    <div class="timeline-content">
+                        <h4>BUT Réseaux & Télécommunications</h4>
+                        <p>Spécialisation en administration systèmes et réseaux</p>
                     </div>
                 </div>
-                <div class="about-image">
-                    <img src="images/profil2.avif" alt="Photo de profil">
+            </div>
+
+            <!-- Certifications -->
+            <div class="timeline">
+                <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <h4>Certification MOOC</h4>
+                        <p>PANORAMA DE LA SSI</p>
+                        <p>SÉCURITÉ DE L’AUTHENTIFICATION</p>
+                        <p>SÉCURITÉ SUR INTERNET</p>
+                        <p>SÉCURITÉ DU POSTE DE TRAVAIL ET NOMADISME</p>
+                    </div>
                 </div>
             </div>
+            <!-- Section Passions -->
+            <div class="passions">
+                <h3><i class="fas fa-heart"></i> Mes Passions</h3>
+                <div class="passions-grid">
+                    <div class="passion-card">
+                        <i class="fas fa-pencil-alt"></i>
+                        <h4>Dessin</h4>
+                        <p>Passionné par le dessin depuis mon enfance, j'aime me perfercionner dans ce domaine.</p>
+                    </div>
+                    <div class="passion-card">
+                        <i class="fas fa-running"></i>
+                        <h4>Sport</h4>
+                        <p>Grand amateur de sport, je pratique régulièrement la musculation pour maintenir un équilibre
+                            physique et mental.</p>
+                    </div>
+                    <div class="passion-card">
+                        <i class="fas fa-car"></i>
+                        <h4>Mécanique Automobile</h4>
+                        <p>Curieux de mécanique, j'aime comprendre le fonctionnement des véhicules et effectuer des
+                            réparations basiques.</p>
+                    </div>
+                    <div class="passion-card">
+                        <i class="fas fa-paint-brush"></i>
+                        <h4>Design</h4>
+                        <p>Créatif dans l'âme, je m'intéresse au design graphique et à l'expérience utilisateur dans les
+                            applications web.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Citation -->
+            <blockquote class="quote">
+                "Configurer un réseau, c’est sculpter la connectivité."
+            </blockquote>
         </div>
     </section>
 
@@ -79,27 +214,27 @@
         <div class="container">
             <h2>Mes Compétences</h2>
             <div class="skills-grid">
-                <div class="skill-card">
+                <div class="skill-card" data-filter="reseau">
                     <i class="fas fa-network-wired"></i>
                     <h3>Réseaux</h3>
-                    <p>TCP/IP, VLAN, Routage, Switching</p>
+                    <p>VLAN, Routage, Switching</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card" data-filter="securite">
                     <i class="fas fa-shield-alt"></i>
                     <h3>Sécurité</h3>
                     <p>Firewall, Sécurité réseau</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card" data-filter="systemes">
                     <i class="fas fa-server"></i>
                     <h3>Systèmes</h3>
                     <p>Windows Server, Linux, Active Directory</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card" data-filter="maintenance">
                     <i class="fas fa-tools"></i>
                     <h3>Maintenance</h3>
-                    <p>Dépannage, Monitoring, Réseaux, Documentation</p>
+                    <p>Dépannage, Monitoring, Documentation</p>
                 </div>
-                <div class="skill-card">
+                <div class="skill-card" data-filter="virtualisation">
                     <i class="fas fa-project-diagram"></i>
                     <h3>Virtualisation</h3>
                     <p>VMware, VirtualBox, Hyper-V</p>
@@ -112,77 +247,61 @@
     <section id="projets" class="projects">
         <div class="container">
             <h2>Mes Projets</h2>
+
+            <!-- Boutons de filtrage -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all" aria-label="Afficher tous les projets">Tous</button>
+                <button class="filter-btn" data-filter="reseau"
+                    aria-label="Afficher les projets Réseaux">Réseaux</button>
+                <button class="filter-btn" data-filter="securite"
+                    aria-label="Afficher les projets Sécurité">Sécurité</button>
+                <button class="filter-btn" data-filter="systemes"
+                    aria-label="Afficher les projets Systèmes">Systèmes</button>
+                <button class="filter-btn" data-filter="maintenance"
+                    aria-label="Afficher les projets Maintenance">Maintenance</button>
+                <button class="filter-btn" data-filter="virtualisation"
+                    aria-label="Afficher les projets Virtualisation">Virtualisation</button>
+            </div>
+
+            <!-- Grille de projets -->
             <div class="projects-grid" id="projects-grid">
-                <!-- Projets récents (visibles par défaut) -->
-                <div class="project-card">
-                    <img src="images/Cacti/Cacti.png" alt="Cacti">
+                <!-- Projet Cacti -->
+                <div class="project-card" data-category="reseau systemes securite virtualisation">
+                    <img src="images/Cacti/Cacti.jpg" alt="Capture d'écran du projet Cacti">
                     <h3>Traitement des données</h3>
                     <p>Mise en place et configuration d'un système de monitoring réseau avec Cacti</p>
                     <button class="project-link" data-project="Cacti">Voir le projet</button>
                 </div>
-                
-                <div class="project-card">
-                    <img src="images/Mysql/MySQL.jpg" alt="Mysql">
+
+                <!-- Projet MySQL -->
+                <div class="project-card" data-category="systemes securite">
+                    <img src="images/Mysql/MySQL.png" alt="Capture d'écran du projet MySQL">
                     <h3>Gestion d'un Système de Bases de Données Mysql</h3>
-                    <p>Configuration et maintenance d'une infrastructure réseau, gestion des services et des utilisateurs.</p>
+                    <p>Configuration et maintenance d'une infrastructure réseau, gestion des services et des
+                        utilisateurs.</p>
                     <button class="project-link" data-project="Mysql">Voir le projet</button>
                 </div>
-                <!-- <div class="project-card">
-                    <img src="images/sae15.png" alt="SAE 1.5">
-                    <h3>SAE 1.5 - Traitement de données</h3>
-                    <p>Analyse et automatisation du traitement de données réseau, création de scripts et rapports.</p>
-                    <button class="project-link" data-project="sae15">Voir le projet</button>
-                </div> -->
 
-
-                <!-- Projets cachés -->
-                <div class="project-card hidden-project" style="display: flex;">
-                    <img src="images/ActiveDirectory/ActiveDirectory.jpg" alt="ActiveDirectory">
+                <!-- Projet Active Directory -->
+                <div class="project-card" data-category="systemes securite">
+                    <img src="images/ActiveDirectory/ActiveDirectory.png"
+                        alt="Capture d'écran du projet Active Directory">
                     <h3>Active Directory</h3>
                     <p>Création d'une présence en ligne professionnelle et gestion de l'identité numérique.</p>
                     <button class="project-link" data-project="ActiveDirectory">Voir le projet</button>
                 </div>
-                <!-- <div class="project-card hidden-project">
-                    <img src="images/sae13.jpg" alt="SAE 1.3">
-                    <h3>SAE 1.3 - Construction d'un réseau local</h3>
-                    <p>Conception et implémentation d'un réseau local avec routage et tests de connectivité.</p>
-                    <button class="project-link" data-project="sae13">Voir le projet</button>
+
+                <!-- Projet En cours..
+                <div class="project-card" data-category="systemes securite">
+                    <img src="images/logo/Encours.gif" alt="Capture d'écran du projet Active Directory">
+                    <h3>En cours...</h3>
+                    <p>En cours...</p>
+                    <button class="project-link" data-project="ActiveDirectory">Voir le projet</button>
                 </div> -->
-                <!-- <div class="project-card hidden-project">
-                    <img src="images/sae12.jpg" alt="SAE 1.2">
-                    <h3>SAE 1.2 - Découverte du réseau d'entreprise</h3>
-                    <p>Analyse d'une infrastructure réseau existante et documentation des services.</p>
-                    <button class="project-link" data-project="sae12">Voir le projet</button>
-                </div> -->
-                <!-- <div class="project-card hidden-project">
-                    <img src="images/sae11.jpg" alt="SAE 1.1">
-                    <h3>SAE 1.1 - Installation d'un poste de travail</h3>
-                    <p>Configuration d'un poste de travail et mise en place d'une solution de virtualisation.</p>
-                    <button class="project-link" data-project="sae11">Voir le projet</button>
-                </div> -->
-                <!-- <div class="project-card hidden-project">
-                    <img src="images/sae22.jpg" alt="SAE 2.2">
-                    <h3>SAE 2.2 - Sécurité des réseaux</h3>
-                    <p>Mise en place de solutions de sécurité réseau et analyse des vulnérabilités.</p>
-                    <button class="project-link" data-project="sae22">Voir le projet</button>
-                </div> -->
-                <!-- <div class="project-card hidden-project">
-                    <img src="images/sae23.jpg" alt="SAE 2.3">
-                    <h3>SAE 2.3 - Services réseaux avancés</h3>
-                    <p>Déploiement de services réseau avancés et haute disponibilité.</p>
-                    <button class="project-link" data-project="sae23">Voir le projet</button>
-                </div> -->
-                <!-- <div class="project-card hidden-project">
-                    <img src="images/sae23.jpg" alt="SAE 2.3">
-                    <h3>SAE 2.3 - Services réseaux avancés</h3>
-                    <p>Déploiement de services réseau avancés et haute disponibilité.</p>
-                    <button class="project-link" data-project="sae23">Voir le projet</button>
-                </div> -->
+
+
             </div>
-            <div class="projects-button-container">
-                <button id="show-all-projects" class="btn primary-btn">Voir tous les projets</button>
-            </div>
-        </div>
+
     </section>
 
     <!-- Modales des projets -->
@@ -190,41 +309,51 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h2>Traitement des données</h2>
-            <img src="images/Cacti/cacti.png" alt="Cacti" class="modal-image">
+            <img src="images/Cacti/Cacti.png" alt="Capture d'écran du projet Cacti" class="modal-image">
             <div class="project-details">
                 <h3>Description du Projet</h3>
-                <p>Dans ce projet, j'ai configuré un environnement réseau virtuel avec virtualbox comprenant trois machines virtuelles : deux en réseau interne (Debian) et une en NAT (Ubuntu). J'ai assuré la connectivité entre ces machines via des routes configurées manuellement et la translation d'adresses réseau (NAT). J'ai également déployé l'outil de supervision Cacti pour surveiller les performances et l'état des équipements réseau.</p>
-                
+                <p>Dans ce projet, j'ai configuré un environnement réseau virtuel avec virtualbox comprenant trois
+                    machines virtuelles : deux en réseau interne (Debian) et une en NAT (Ubuntu). J'ai assuré la
+                    connectivité entre ces machines via des routes configurées manuellement et la translation d'adresses
+                    réseau (NAT). J'ai également déployé l'outil de supervision Cacti pour surveiller les performances
+                    et l'état des équipements réseau.</p>
+
                 <h3>Compétences Développées</h3>
                 <ul>
-                    <li>Administration réseau : Configuration des adresses IP, routage, et mise en place du NAT pour assurer la communication entre les machines virtuelles et l'accès à Internet.</li>
-                    <li>Supervision des systèmes : Installation, configuration et utilisation de Cacti pour suivre l'état des équipements.</li>
-                    <li>Administration système : Gestion des services critiques tels qu'Apache, MariaDB et PHP, et optimisation des configurations système.</li>
-                    <li>Gestion de projet IT : Structuration des étapes du projet, résolution de problèmes réseau et documentation claire des actions entreprises.</li>
+                    <li>Administration réseau : Configuration des adresses IP, routage, et mise en place du NAT pour
+                        assurer la communication entre les machines virtuelles et l'accès à Internet.</li>
+                    <li>Supervision des systèmes : Installation, configuration et utilisation de Cacti pour suivre
+                        l'état des équipements.</li>
+                    <li>Administration système : Gestion des services critiques tels qu'Apache, MariaDB et PHP, et
+                        optimisation des configurations système.</li>
+                    <li>Gestion de projet IT : Structuration des étapes du projet, résolution de problèmes réseau et
+                        documentation claire des actions entreprises.</li>
                 </ul>
-    
+
                 <!-- Galerie d'images -->
                 <h3>Galerie du Projet</h3>
                 <div class="gallery">
-                    <img src="images/Cacti/CactiP1.jpg" alt="Projet 1" class="gallery-thumbnail">
-                    <img src="images/Cacti/CactiP2.jpg" alt="Projet 2" class="gallery-thumbnail">
-                    <img src="images/Cacti/CactiP3.jpg" alt="Projet 3" class="gallery-thumbnail">
+                    <img src="images/Cacti/cactiP1.jpg" alt="Graphique généré par Cacti" class="gallery-thumbnail">
+                    <img src="images/Cacti/cactiP2.jpg" alt="Configuration de Cacti" class="gallery-thumbnail">
+                    <img src="images/Cacti/cactiP3.jpg" alt="Interface utilisateur de Cacti" class="gallery-thumbnail">
                 </div>
             </div>
         </div>
     </div>
 
 
-     <!-- Projet Mysql -->
-     <div class="modal" id="MysqlModal">
+    <!-- Projet Mysql -->
+    <div class="modal" id="MysqlModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h2>Gestion d'un Système de Bases de Données MySQL</h2>
-            <img src="images/Mysql/MySQL.jpg" alt="MySQL" class="modal-image">
+            <img src="images/Mysql/MySQL.jpg" alt="Capture d'écran du projet MySQL" class="modal-image">
             <div class="project-details">
                 <h3>Description du Projet</h3>
-                <p>Ce projet consistait à mettre en place et gérer un système de bases de données MySQL dans un environnement professionnel. J'ai configuré le serveur MySQL, créé et optimisé des bases de données, et mis en place des procédures de sauvegarde et de restauration.</p>
-                
+                <p>Ce projet consistait à mettre en place et gérer un système de bases de données MySQL dans un
+                    environnement professionnel. J'ai configuré le serveur MySQL, créé et optimisé des bases de données,
+                    et mis en place des procédures de sauvegarde et de restauration.</p>
+
                 <h3>Étapes clés du projet</h3>
                 <div class="project-steps">
                     <div class="step">
@@ -286,114 +415,142 @@
 
                 <h3>Compétences Développées</h3>
                 <ul>
-                    <li>Administration de bases de données : Installation et configuration de MySQL, gestion des utilisateurs et des permissions</li>
-                    <li>Optimisation : Analyse et amélioration des performances des requêtes et de la structure des bases de données</li>
+                    <li>Administration de bases de données : Installation et configuration de MySQL, gestion des
+                        utilisateurs et des permissions</li>
+                    <li>Optimisation : Analyse et amélioration des performances des requêtes et de la structure des
+                        bases de données</li>
                     <li>Sécurité : Mise en place de politiques de sécurité et de contrôle d'accès</li>
                     <li>Maintenance : Création de procédures de sauvegarde et de restauration automatisées</li>
                 </ul>
-    
+
                 <!-- Galerie d'images -->
                 <h3>Galerie du Projet</h3>
                 <div class="gallery">
                     <img src="images/Mysql/MysqlP1.jpg" alt="Configuration MySQL" class="gallery-thumbnail">
-                    <img src="images/Mysql/MysqlP2.jpg" alt="Gestion des bases" class="gallery-thumbnail">
+                    <img src="images/Mysql/MysqlP2.jpg" alt="Gestion des bases MySQL" class="gallery-thumbnail">
                     <img src="images/Mysql/MysqlP3.jpg" alt="Administration MySQL" class="gallery-thumbnail">
                 </div>
             </div>
         </div>
     </div>
 
-        <!-- Projet ActiveDirectory -->
-        <div class="modal" id="ActiveDirectoryModal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <h2>Active Directory</h2>
-                <img src="images/ActiveDirectory/ActiveDirectory.jpg" alt="Active Directory" class="modal-image">
-                <div class="project-details">
-                    <h3>Description du Projet</h3>
-                    <p>Ce projet consistait à configurer un environnement Active Directory sur une VM Windows Server 2016 pour centraliser la gestion des utilisateurs, des groupes, et des politiques réseau. L’objectif était de déployer un contrôleur de domaine, créer des unités d’organisation (UO) avec des groupes et des utilisateurs, ajouter des postes au domaine, et appliquer des stratégies de groupe (GPO) pour la gestion des accès.</p>
-                    
-                    <h3>Étapes clés du projet</h3>
-                    <div class="project-steps">
-                        <div class="step">
-                            <div class="step-header">
-                                <i class="fa-solid fa-laptop"></i>
-                                <h4>1. Création et configuration des machines virtuelles :</h4>
-                            </div>
-                            <div class="step-content">
-                                <ul>
-                                    <li>Installation de Windows Server 2016 sur VirtualBox et configuration des paramètres réseau.</li>
-                                    <li>Clonage de la machine pour simuler un environnement réseau avec plusieurs serveurs.</li>
-                                </ul>
-                            </div>
-                        </div>
-    
-                        <div class="step">
-                            <div class="step-header">
-                                <i class="fas fa-network-wired"></i>
-                                <h4>2. Déploiement d'Active Directory :</h4>
-                            </div>
-                            <div class="step-content">
-                                <ul>
-                                    <li>Installation des services de domaine Active Directory (AD DS) et promotion en contrôleur de domaine.</li>
-                                    <li>Configuration du domaine rtdomtest.com avec gestion des unités d'organisation, groupes, et utilisateurs.</li>  
+    <!-- Projet ActiveDirectory -->
+    <div class="modal" id="ActiveDirectoryModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Active Directory</h2>
+            <img src="images/ActiveDirectory/ActiveDirectory.jpg" alt="Capture d'écran du projet Active Directory"
+                class="modal-image">
+            <div class="project-details">
+                <h3>Description du Projet</h3>
+                <p>Ce projet consistait à configurer un environnement Active Directory sur une VM Windows Server 2016
+                    pour centraliser la gestion des utilisateurs, des groupes, et des politiques réseau. L’objectif
+                    était de déployer un contrôleur de domaine, créer des unités d’organisation (UO) avec des groupes et
+                    des utilisateurs, ajouter des postes au domaine, et appliquer des stratégies de groupe (GPO) pour la
+                    gestion des accès.</p>
 
-                                </ul>
-                            </div>
+                <h3>Étapes clés du projet</h3>
+                <div class="project-steps">
+                    <div class="step">
+                        <div class="step-header">
+                            <i class="fa-solid fa-laptop"></i>
+                            <h4>1. Création et configuration des machines virtuelles :</h4>
                         </div>
-    
-                        <div class="step">
-                            <div class="step-header">
-                                <i class="fa-solid fa-users"></i>
-                                <h4>3. Ajout de postes au domaine :</h4>
-                            </div>
-                            <div class="step-content">
-                                <ul>
-                                    <li>Modification des paramètres réseau pour joindre un poste client au domaine.</li>
-                                    <li>Tests de connectivité et authentification avec les comptes utilisateur créés.</li>
-                                </ul>
-                            </div>
-                        </div>
-    
-                        <div class="step">
-                            <div class="step-header">
-                                <i class="fas fa-sync-alt"></i>
-                                <h4>4. Gestion des GPO (Group Policy Object) :</h4>
-                            </div>
-                            <div class="step-content">
-                                <ul>
-                                    <li>Création d'une stratégie de groupe pour restreindre l'accès au lecteur C: uniquement pour le groupe « Étudiant ».</li>
-                                    <li>Application ciblée des politiques à un groupe spécifique via des permissions de filtrage</li>
-                                </ul>
-                            </div>
+                        <div class="step-content">
+                            <ul>
+                                <li>Installation de Windows Server 2016 sur VirtualBox et configuration des paramètres
+                                    réseau.</li>
+                                <li>Clonage de la machine pour simuler un environnement réseau avec plusieurs serveurs.
+                                </li>
+                            </ul>
                         </div>
                     </div>
-    
-                    <h3>Compétences Développées</h3>
-                    <ul>
-                        <li>Administration Windows Server : Installation et configuration de MySQL, gestion des utilisateurs et des permissions</li>
-                        <li>Gestion des utilisateurs et des groupes : Création d'unités d'organisation (UO), de groupes et d'utilisateurs dans Active Directory. Attribution de permissions et gestion des accès via des stratégies de groupe.</li>
-                        <li>Réseaux et connectivité : Configuration des adresses IP statiques et paramètres DNS pour assurer la connectivité au domaine. Résolution des problèmes liés aux SID des machines clonées.</li>
-                        <li>Supervision et sécurité : Application de GPO pour restreindre ou personnaliser les accès utilisateur. Tests de fonctionnalité et dépannage réseau dans un environnement simulé.</li>
-                        <li>Collaboration et documentation : Travail structuré basé sur des scénarios réalistes pour simuler un réseau d'entreprise. Rédaction de procédures détaillées pour garantir la reproductibilité.</li>
-                    </ul>
-        
-                    <!-- Galerie d'images -->
-                    <h3>Galerie du Projet</h3>
-                    <div class="gallery">
-                        <img src="images/ActiveDirectory/ActiveDirectoryP1.jpg" alt="Configuration Active Directory" class="gallery-thumbnail">
-                        <img src="images/ActiveDirectory/ActiveDirectoryP2.jpg" alt="Gestion des utilisateurs" class="gallery-thumbnail">
-                        <img src="images/ActiveDirectory/ActiveDirectoryP3.jpg" alt="Administration Active Directory" class="gallery-thumbnail">
+
+                    <div class="step">
+                        <div class="step-header">
+                            <i class="fas fa-network-wired"></i>
+                            <h4>2. Déploiement d'Active Directory :</h4>
+                        </div>
+                        <div class="step-content">
+                            <ul>
+                                <li>Installation des services de domaine Active Directory (AD DS) et promotion en
+                                    contrôleur de domaine.</li>
+                                <li>Configuration du domaine rtdomtest.com avec gestion des unités d'organisation,
+                                    groupes, et utilisateurs.</li>
+
+                            </ul>
+                        </div>
                     </div>
+
+                    <div class="step">
+                        <div class="step-header">
+                            <i class="fa-solid fa-users"></i>
+                            <h4>3. Ajout de postes au domaine :</h4>
+                        </div>
+                        <div class="step-content">
+                            <ul>
+                                <li>Modification des paramètres réseau pour joindre un poste client au domaine.</li>
+                                <li>Tests de connectivité et authentification avec les comptes utilisateur créés.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-header">
+                            <i class="fas fa-sync-alt"></i>
+                            <h4>4. Gestion des GPO (Group Policy Object) :</h4>
+                        </div>
+                        <div class="step-content">
+                            <ul>
+                                <li>Création d'une stratégie de groupe pour restreindre l'accès au lecteur C: uniquement
+                                    pour le groupe « Étudiant ».</li>
+                                <li>Application ciblée des politiques à un groupe spécifique via des permissions de
+                                    filtrage</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Compétences Développées</h3>
+                <ul>
+                    <li>Administration Windows Server : Installation et configuration de MySQL, gestion des utilisateurs
+                        et des permissions</li>
+                    <li>Gestion des utilisateurs et des groupes : Création d'unités d'organisation (UO), de groupes et
+                        d'utilisateurs dans Active Directory. Attribution de permissions et gestion des accès via des
+                        stratégies de groupe.</li>
+                    <li>Réseaux et connectivité : Configuration des adresses IP statiques et paramètres DNS pour assurer
+                        la connectivité au domaine. Résolution des problèmes liés aux SID des machines clonées.</li>
+                    <li>Supervision et sécurité : Application de GPO pour restreindre ou personnaliser les accès
+                        utilisateur. Tests de fonctionnalité et dépannage réseau dans un environnement simulé.</li>
+                    <li>Collaboration et documentation : Travail structuré basé sur des scénarios réalistes pour simuler
+                        un réseau d'entreprise. Rédaction de procédures détaillées pour garantir la reproductibilité.
+                    </li>
+                </ul>
+
+                <!-- Galerie d'images -->
+                <h3>Galerie du Projet</h3>
+                <div class="gallery">
+                    <img src="images/ActiveDirectory/ActiveDirectory1.jpg" alt="Configuration Active Directory"
+                        class="gallery-thumbnail">
+                    <img src="images/ActiveDirectory/ActiveDirectory1 (2).jpg"
+                        alt="Gestion des utilisateurs Active Directory" class="gallery-thumbnail">
+                    <img src="images/ActiveDirectory/ActiveDirectory1 (3).jpg" alt="Administration Active Directory"
+                        class="gallery-thumbnail">
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- Un seul modal pour afficher l'image en grand -->
     <div id="imageModal" class="modal">
         <span class="close-image-modal">&times;</span>
         <img class="modal-enlarged-image" id="enlargedImage">
     </div>
+
+    <!-- Bouton "Retour en haut" -->
+    <button id="back-to-top" title="Retour en haut" aria-label="Retour en haut de la page">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Section Contact -->
     <section id="contact" class="contact">
@@ -412,9 +569,16 @@
                     </div>
                     <button type="submit" class="submit-button">Envoyer</button>
                 </form>
+                <div id="form-message" style="display: none;"></div>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/votre-profil" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/votre-compte" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/romain-koumalen-leon-3a7b822a2/" class="social-link"
+                        target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/R0ma1nGit" class="social-link" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -528,4 +692,5 @@
         });
     </script>
 </body>
+
 </html>

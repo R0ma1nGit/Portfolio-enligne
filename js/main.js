@@ -32,21 +32,18 @@ window.addEventListener('scroll', () => {
 
 // Gestion du formulaire de contact
 const contactForm = document.getElementById('contact-form');
+const formMessage = document.getElementById('form-message');
 
 contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    // Récupération des valeurs du formulaire
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    // Ici, vous pouvez ajouter le code pour envoyer les données du formulaire
-    // Par exemple, en utilisant fetch() pour envoyer à un backend
-    
-    // Pour l'instant, on affiche juste une alerte
-    alert('Merci pour votre message ! Je vous répondrai dès que possible.');
+    formMessage.textContent = 'Merci pour votre message ! Je vous répondrai dès que possible.';
+    formMessage.style.display = 'block';
+    formMessage.style.padding = '1rem';
+    formMessage.style.backgroundColor = 'var(--accent-color)';
+    formMessage.style.color = 'white';
+    formMessage.style.borderRadius = '5px';
     contactForm.reset();
+    setTimeout(() => formMessage.style.display = 'none', 5000);
 });
 
 // Animation des compétences au scroll
@@ -78,9 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroSubtitle = document.querySelector('.hero .subtitle');
     const ctaButton = document.querySelector('.cta-button');
 
-    heroTitle.style.opacity = 0;
-    heroSubtitle.style.opacity = 0;
-    ctaButton.style.opacity = 0;
+    if (heroTitle) heroTitle.style.opacity = 0;
+    if (heroSubtitle) heroSubtitle.style.opacity = 0;
+    if (ctaButton) ctaButton.style.opacity = 0;
 
     setTimeout(() => {
         heroTitle.style.transition = 'opacity 1s ease-out';
@@ -485,4 +482,84 @@ document.addEventListener('keydown', (e) => {
         imageModal.style.display = 'none';
         document.body.style.overflow = ''; // Restaure le défilement
     }
+});
+
+// Filtrage des projets
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Retirer la classe active de tous les boutons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Ajouter la classe active au bouton cliqué
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                const projects = document.querySelectorAll('.project-card');
+                
+                projects.forEach(project => {
+                    const categories = project.getAttribute('data-category').split(' ');
+                    if (filter === 'all' || categories.includes(filter)) {
+                        project.style.display = 'flex';
+                    } else {
+                        project.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+});
+
+// Redirection vers les projets filtrés depuis les compétences
+document.addEventListener('DOMContentLoaded', function() {
+    const skillCards = document.querySelectorAll('.skill-card[data-filter]');
+    
+    skillCards.forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            // Activer le bouton de filtre correspondant
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-filter') === filter) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Filtrer les projets
+            const projects = document.querySelectorAll('.project-card');
+            projects.forEach(project => {
+                const categories = project.getAttribute('data-category').split(' ');
+                if (filter === 'all' || categories.includes(filter)) {
+                    project.style.display = 'flex';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+            
+            // Faire défiler jusqu'à la section projets
+            document.getElementById('projets').scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+});
+
+// Bouton "Retour en haut"
+const backToTopBtn = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopBtn.style.display = 'block';
+    } else {
+        backToTopBtn.style.display = 'none';
+    }
+});
+
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
