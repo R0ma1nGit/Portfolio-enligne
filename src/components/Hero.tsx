@@ -40,7 +40,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold font-mono mb-8">
-            <span className="text-primary text-glow">Romain</span> -{" "}
+            <span className="text-primary text-glow">Romaiin</span> -{" "}
             <span className="text-secondary text-glow">LEON</span>
           </h1>
 
@@ -124,3 +124,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
