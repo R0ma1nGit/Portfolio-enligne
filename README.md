@@ -1,110 +1,73 @@
-# Portfolio Technicien Réseau
+# Welcome to your Lovable project
 
-Un portfolio web professionnel pour les étudiants en réseaux et télécommunications, mettant en valeur les compétences techniques et les projets d'infrastructure réseau.
+## Project info
 
-## Fonctionnalités
+**URL**: https://lovable.dev/projects/8e76d5f8-ab84-43ad-8ed1-21d5f77bf0cc
 
-- Design moderne et professionnel adapté au domaine des réseaux
-- Sections détaillées pour présenter vos compétences techniques
-- Mise en avant des certifications et formations
-- Présentation des projets d'infrastructure réseau
-- Formulaire de contact professionnel
-- Intégration des réseaux sociaux professionnels (LinkedIn)
+## How can I edit this code?
 
-## Structure du Projet
+There are several ways of editing your application.
 
+**Use Lovable**
+
+Simply visit the [Lovable Project](https://lovable.dev/projects/8e76d5f8-ab84-43ad-8ed1-21d5f77bf0cc) and start prompting.
+
+Changes made via Lovable will be committed automatically to this repo.
+
+**Use your preferred IDE**
+
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+Follow these steps:
+
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
+
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install the necessary dependencies.
+npm i
+
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
 ```
-portfolio/
-│
-├── index.html          # Page principale
-├── css/
-│   └── style.css      # Styles
-├── js/
-│   └── main.js        # JavaScript
-├── images/            # Dossier pour vos images
-│   ├── profile.jpg    # Photo de profil
-│   ├── project1.jpg   # Image projet infrastructure
-│   ├── project2.jpg   # Image monitoring
-│   └── project3.jpg   # Image VPN
-└── README.md         # Documentation
-```
 
-## Personnalisation
+**Edit a file directly in GitHub**
 
-### Images
-1. Placez vos images dans le dossier `images/` :
-   - Photo de profil professionnelle
-   - Captures d'écran ou schémas de vos projets réseau
-   - Diagrammes d'infrastructure
-   - Certifications obtenues
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
 
-### Contenu à Personnaliser
-1. Dans `index.html` :
-   - Votre nom et titre professionnel
-   - Description de votre parcours et objectifs
-   - Liste de vos certifications (CCNA, etc.)
-   - Compétences techniques spécifiques
-   - Description détaillée de vos projets réseau
+**Use GitHub Codespaces**
 
-### Projets Suggérés
-- Infrastructure réseau (configurations, topologies)
-- Solutions de sécurité (Firewall, VPN)
-- Systèmes de monitoring réseau
-- Virtualisation et cloud
-- Projets de maintenance et dépannage
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-### Style
-1. Les couleurs peuvent être personnalisées dans `css/style.css` :
-   ```css
-   :root {
-       --primary-color: #2d3e50;    /* Bleu professionnel foncé */
-       --secondary-color: #34495e;   /* Bleu secondaire */
-       --accent-color: #3498db;      /* Bleu accent */
-   }
-   ```
+## What technologies are used for this project?
 
-### Liens Professionnels
-1. Mettez à jour les liens dans la section contact :
-   - LinkedIn professionnel
-   - GitHub (pour les scripts et configurations)
-   - Certifications en ligne
-   - Portfolio technique
+This project is built with:
 
-## Optimisation pour le Recrutement
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
 
-1. Mots-clés techniques à inclure :
-   - Technologies réseau (TCP/IP, VLAN, VPN)
-   - Équipements (Cisco, HP, etc.)
-   - Certifications (CCNA, CCNP, etc.)
-   - Outils de monitoring
-   - Systèmes d'exploitation
-   - Virtualisation et cloud
+## How can I deploy this project?
 
-2. Projets à mettre en avant :
-   - Configurations réseau complexes
-   - Solutions de sécurité
-   - Projets de maintenance
-   - Optimisations d'infrastructure
+Simply open [Lovable](https://lovable.dev/projects/8e76d5f8-ab84-43ad-8ed1-21d5f77bf0cc) and click on Share -> Publish.
 
-## Déploiement
+## Can I connect a custom domain to my Lovable project?
 
-1. Hébergez sur une plateforme professionnelle :
-   - GitHub Pages
-   - Netlify
-   - Vercel
-2. Utilisez un nom de domaine professionnel si possible
+Yes, you can!
 
-## Prérequis
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-- Un navigateur web moderne
-- Un éditeur de code (VS Code recommandé)
-- Connaissances basiques en HTML/CSS pour la personnalisation
-- Images et captures d'écran de vos projets réseau
-
-## Contribution
-
-Les contributions sont les bienvenues ! N'hésitez pas à proposer des améliorations ou à signaler des problèmes.
-
-## Licence
-
-Ce projet est sous licence MIT. Vous êtes libre de l'utiliser et de le modifier selon vos besoins.
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
