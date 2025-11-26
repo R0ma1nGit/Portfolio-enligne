@@ -36,7 +36,7 @@ const Experience = () => {
                     <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
                       <div className="flex items-center gap-2">
                         <Calendar size={16} />
-                        <span>Stage - 2023</span>
+                        <span>Stage (2mois) - 2023</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <MapPin size={16} />
@@ -95,3 +95,4 @@ const Experience = () => {
 };
 
 export default Experience;
+
