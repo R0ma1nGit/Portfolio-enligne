@@ -20,7 +20,7 @@ interface Project {
   category: ProjectCategory;
   topology?: string;
   detailedDescription: {
-    contexte: string;
+    contexte?: string;
     objectif: string;
     realisation: string[];
     resultats: string;
