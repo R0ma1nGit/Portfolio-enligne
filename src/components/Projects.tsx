@@ -32,6 +32,27 @@ const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | "tous">("tous");
 
   const projects: Project[] = [
+
+  {
+    title: "Titre du Projet",
+    description: "Description courte pour la carte (2 lignes max).",
+    icon: Network, // Choisir l'icône importée (Network, Server, Shield, etc.)
+    skills: ["Compétence 1", "Compétence 2", "Compétence 3"],
+    color: "primary", // ou "secondary"
+    category: "réseau", // choix: "réseau" | "supervision" | "serveur" | "virtualisation" | "sécurité"
+    topology: undefined, // Remplacer par la variable d'image importée si dispo (ex: topologyMpls)
+    detailedDescription: {
+      objectif: "L'objectif principal du projet...",
+      realisation: [
+        "Étape 1 de la réalisation",
+        "Étape 2 de la réalisation",
+        "Étape 3 de la réalisation"
+      ],
+      resultats: "Les résultats obtenus, chiffres clés...",
+      technologies: ["Tech 1", "Tech 2", "Tech 3"]
+    }
+  },
+
     {
       title: "Implémentation MPLS avec OSPF/EIGRP/RIP",
       description:
