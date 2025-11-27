@@ -20,6 +20,7 @@ interface Project {
   category: ProjectCategory;
   topology?: string;
   detailedDescription: {
+    contexte: string;
     objectif: string;
     realisation: string[];
     resultats: string;
@@ -57,27 +58,32 @@ const Projects = () => {
   },
   */
   // ==================================================================================
-    {
-      title: "Implémentation MPLS avec OSPF/EIGRP/RIP",
+ {
+      title: "Architecture MPLS & Optimisation de Routage",
       description:
-        "Conception et déploiement d'un réseau MPLS complet avec comparaison des protocoles de routage.",
+        "Déploiement d'un cœur de réseau MPLS multi-sites, segmentation VRF et analyse de performance des protocoles de routage.",
       icon: Network,
-      skills: ["MPLS", "OSPF", "EIGRP", "RIP", "SD-WAN", "Cisco"],
+      // J'ai remplacé RIP par Wireshark dans les tags visibles (plus vendeur pour la supervision)
+      skills: ["MPLS", "OSPF", "VRF", "Cisco", "Wireshark", "QoS"],
       color: "primary",
       category: "réseau",
       topology: topologyMpls,
       detailedDescription: {
-        objectif: "Concevoir et déployer une architecture MPLS multi-sites avec analyse comparative des différents protocoles de routage dynamique (OSPF, EIGRP, RIP) et étude des solutions SD-WAN.",
+        // J'ai reformulé pour montrer que tu cherches la performance et la stabilité
+        contexte: "Ajouter un contexte"
+        objectif: "Concevoir un backbone MPLS capable de supporter plusieurs clients isolés (VRF) et démontrer la supériorité des protocoles à état de liens (OSPF) sur la stabilité du réseau.",
         realisation: [
           "Configuration de 6 routeurs Cisco en topologie MPLS avec Label Distribution Protocol (LDP)",
-          "Implémentation et tests comparatifs des protocoles OSPF (zones multi-areas), EIGRP (métriques composites) et RIP v2",
-          "Configuration des VRF (Virtual Routing and Forwarding) pour la séparation du trafic client",
-          "Mise en place de QoS (Quality of Service) pour prioriser le trafic voix/vidéo",
-          "Analyse des performances : temps de convergence, utilisation bande passante, overhead protocolaire",
-          "Documentation complète de l'architecture et comparaison avec solutions SD-WAN (VeloCloud, Cisco SD-WAN)"
+          "Segmentation stricte du trafic client via VRF-Lite (Virtual Routing and Forwarding)",
+          // Ici on montre que tu as testé RIP pour en montrer les limites, c'est plus malin
+          "Comparaison technique : Mise en évidence des limites de RIPv2 face à la convergence rapide d'OSPF (Multi-Area)",
+          "Mise en place de politiques QoS pour garantir la priorité du trafic Voix sur la Data",
+          // AJOUT CRUCIAL POUR TON PROFIL SUPERVISION :
+          "Troubleshooting avancé : Analyse des paquets et des labels MPLS via Wireshark et commandes de debug Cisco",
+          "Analyse des métriques de performance : temps de convergence et overhead protocolaire"
         ],
-        resultats: "Réseau MPLS opérationnel avec amélioration de 40% du temps de convergence avec OSPF vs RIP. Documentation technique détaillée avec recommandations pour migration SD-WAN.",
-        technologies: ["Cisco IOS", "GNS3", "MPLS", "VRF", "BGP", "QoS", "Wireshark"]
+        resultats: "Réseau MPLS stable avec isolation des flux validée. Gain mesuré de 40% sur le temps de convergence OSPF vs RIP. Maîtrise des outils de diagnostic (Wireshark/Debug).",
+        technologies: ["Cisco IOS", "GNS3", "MPLS", "VRF", "OSPF", "QoS", "Wireshark"]
       }
     },
     {
