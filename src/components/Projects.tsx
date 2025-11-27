@@ -70,7 +70,7 @@ const Projects = () => {
       topology: topologyMpls,
       detailedDescription: {
         // J'ai reformulé pour montrer que tu cherches la performance et la stabilité
-        contexte: "Ajouter un contexte"
+        contexte: "Ajouter un contexte précis"
         objectif: "Concevoir un backbone MPLS capable de supporter plusieurs clients isolés (VRF) et démontrer la supériorité des protocoles à état de liens (OSPF) sur la stabilité du réseau.",
         realisation: [
           "Configuration de 6 routeurs Cisco en topologie MPLS avec Label Distribution Protocol (LDP)",
