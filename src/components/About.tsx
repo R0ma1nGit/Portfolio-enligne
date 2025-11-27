@@ -23,10 +23,10 @@ const About = () => {
                     Formation
                   </h3>
                   <p className="text-muted-foreground mb-2">
-                    DUT Réseaux & Télécommunications
+                    BUT Réseaux & Télécommunications
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    IUT de Saint-Pierre - Spécialisation Réseau
+                    (2023-2026) IUT de Saint-Pierre - Spécialisation Réseau Opérateur et Multimédia
                   </p>
                   <p className="text-sm text-muted-foreground mt-2">
                     Bac STI2D option SIN
@@ -61,12 +61,10 @@ const About = () => {
               <span className="font-mono text-muted-foreground">cat about.txt</span>
             </div>
             <p className="text-foreground leading-relaxed">
-              Passionné par l'univers des réseaux et des télécommunications, je me spécialise 
-              dans la configuration d'infrastructures réseau complexes (MPLS, OSPF, EIGRP), 
-              l'administration de systèmes Linux, et la supervision d'infrastructures IT. 
-              Mon parcours académique et mes expériences pratiques m'ont permis de développer 
-              une expertise technique solide, alliant théorie et mise en pratique sur des 
-              projets concrets.
+              Passionné par l'univers des réseaux et actuellement en <strong>dernière année de BUT R&T</strong>, 
+              je me spécialise dans la supervision d'infrastructures IT et la métrologie (Grafana). 
+              Je conserve une base technique solide en configuration réseau complexe (MPLS, OSPF) et en administration Linux, 
+              car je suis convaincu qu'on ne surveille bien que ce que l'on comprend.
             </p>
             <p className="text-foreground leading-relaxed mt-4">
               Je recherche activement des opportunités pour approfondir mes compétences en 
