@@ -32,7 +32,10 @@ const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | "tous">("tous");
 
   const projects: Project[] = [
-
+    // ==================================================================================
+  // ↓↓ COPIE CE BLOC POUR AJOUTER UN NOUVEAU PROJET ↓↓
+  // ==================================================================================
+  /*
   {
     title: "Titre du Projet",
     description: "Description courte pour la carte (2 lignes max).",
@@ -52,7 +55,8 @@ const Projects = () => {
       technologies: ["Tech 1", "Tech 2", "Tech 3"]
     }
   },
-
+  */
+  // ==================================================================================
     {
       title: "Implémentation MPLS avec OSPF/EIGRP/RIP",
       description:
