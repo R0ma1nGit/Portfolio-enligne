@@ -63,7 +63,7 @@ const Hero = () => {
           </div>
 
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Étudiant en DUT Réseaux & Télécommunications | Spécialisation Réseau
+            Étudiant en BUT Réseaux & Télécommunications | Spécialisation Réseau
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
