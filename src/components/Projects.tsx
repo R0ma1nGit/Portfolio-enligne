@@ -20,7 +20,7 @@ interface Project {
   category: ProjectCategory;
   topology?: string;
   detailedDescription: {
-    contexte?: string;
+    contexte: string;
     objectif: string;
     realisation: string[];
     resultats: string;
@@ -33,57 +33,28 @@ const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | "tous">("tous");
 
   const projects: Project[] = [
-    // ==================================================================================
-  // ↓↓ COPIE CE BLOC POUR AJOUTER UN NOUVEAU PROJET ↓↓
-  // ==================================================================================
-  /*
-  {
-    title: "Titre du Projet",
-    description: "Description courte pour la carte (2 lignes max).",
-    icon: Network, // Choisir l'icône importée (Network, Server, Shield, etc.)
-    skills: ["Compétence 1", "Compétence 2", "Compétence 3"],
-    color: "primary", // ou "secondary"
-    category: "réseau", // choix: "réseau" | "supervision" | "serveur" | "virtualisation" | "sécurité"
-    topology: undefined, // Remplacer par la variable d'image importée si dispo (ex: topologyMpls)
-    detailedDescription: {
-      objectif: "L'objectif principal du projet...",
-      realisation: [
-        "Étape 1 de la réalisation",
-        "Étape 2 de la réalisation",
-        "Étape 3 de la réalisation"
-      ],
-      resultats: "Les résultats obtenus, chiffres clés...",
-      technologies: ["Tech 1", "Tech 2", "Tech 3"]
-    }
-  },
-  */
-  // ==================================================================================
- {
-      title: "Architecture MPLS & Optimisation de Routage",
+    {
+      title: "Implémentation MPLS avec OSPF/EIGRP/RIP",
       description:
-        "Déploiement d'un cœur de réseau MPLS multi-sites, segmentation VRF et analyse de performance des protocoles de routage.",
+        "Conception et déploiement d'un réseau MPLS complet avec comparaison des protocoles de routage.",
       icon: Network,
-      // J'ai remplacé RIP par Wireshark dans les tags visibles (plus vendeur pour la supervision)
-      skills: ["MPLS", "OSPF", "VRF", "Cisco", "Wireshark", "QoS"],
+      skills: ["MPLS", "OSPF", "EIGRP", "RIP", "SD-WAN", "Cisco"],
       color: "primary",
       category: "réseau",
       topology: topologyMpls,
       detailedDescription: {
-        // J'ai reformulé pour montrer que tu cherches la performance et la stabilité
-        contexte: "Ajouter un contexte précis",
-        objectif: "Concevoir un backbone MPLS capable de supporter plusieurs clients isolés (VRF) et démontrer la supériorité des protocoles à état de liens (OSPF) sur la stabilité du réseau.",
+        contexte: "Dans le cadre de la modernisation de l'infrastructure réseau d'une entreprise multi-sites, il était nécessaire d'évaluer et de mettre en œuvre une solution de routage performante pour interconnecter les différents sites tout en optimisant la bande passante et les temps de convergence.",
+        objectif: "Concevoir et déployer une architecture MPLS multi-sites avec analyse comparative des différents protocoles de routage dynamique (OSPF, EIGRP, RIP) et étude des solutions SD-WAN.",
         realisation: [
           "Configuration de 6 routeurs Cisco en topologie MPLS avec Label Distribution Protocol (LDP)",
-          "Segmentation stricte du trafic client via VRF-Lite (Virtual Routing and Forwarding)",
-          // Ici on montre que tu as testé RIP pour en montrer les limites, c'est plus malin
-          "Comparaison technique : Mise en évidence des limites de RIPv2 face à la convergence rapide d'OSPF (Multi-Area)",
-          "Mise en place de politiques QoS pour garantir la priorité du trafic Voix sur la Data",
-          // AJOUT CRUCIAL POUR TON PROFIL SUPERVISION :
-          "Troubleshooting avancé : Analyse des paquets et des labels MPLS via Wireshark et commandes de debug Cisco",
-          "Analyse des métriques de performance : temps de convergence et overhead protocolaire"
+          "Implémentation et tests comparatifs des protocoles OSPF (zones multi-areas), EIGRP (métriques composites) et RIP v2",
+          "Configuration des VRF (Virtual Routing and Forwarding) pour la séparation du trafic client",
+          "Mise en place de QoS (Quality of Service) pour prioriser le trafic voix/vidéo",
+          "Analyse des performances : temps de convergence, utilisation bande passante, overhead protocolaire",
+          "Documentation complète de l'architecture et comparaison avec solutions SD-WAN (VeloCloud, Cisco SD-WAN)"
         ],
-        resultats: "Réseau MPLS stable avec isolation des flux validée. Gain mesuré de 40% sur le temps de convergence OSPF vs RIP. Maîtrise des outils de diagnostic (Wireshark/Debug).",
-        technologies: ["Cisco IOS", "GNS3", "MPLS", "VRF", "OSPF", "QoS", "Wireshark"]
+        resultats: "Réseau MPLS opérationnel avec amélioration de 40% du temps de convergence avec OSPF vs RIP. Documentation technique détaillée avec recommandations pour migration SD-WAN.",
+        technologies: ["Cisco IOS", "GNS3", "MPLS", "VRF", "BGP", "QoS", "Wireshark"]
       }
     },
     {
@@ -96,6 +67,7 @@ const Projects = () => {
       category: "supervision",
       topology: topologyCacti,
       detailedDescription: {
+        contexte: "L'entreprise ne disposait pas de visibilité sur l'état de santé de son infrastructure réseau. Les pannes étaient détectées tardivement par les utilisateurs, causant des interruptions de service prolongées et impactant la productivité.",
         objectif: "Mettre en place une solution de supervision réseau centralisée permettant le monitoring en temps réel de l'ensemble de l'infrastructure (switches, routeurs, serveurs).",
         realisation: [
           "Installation et configuration de Cacti sur serveur Debian 11 avec Apache, MySQL et PHP",
@@ -119,6 +91,7 @@ const Projects = () => {
       category: "serveur",
       topology: topologyDns,
       detailedDescription: {
+        contexte: "L'entreprise utilisait un serveur DNS vieillissant non sécurisé et sans redondance. Les risques de DNS spoofing et l'absence de haute disponibilité représentaient une vulnérabilité critique pour l'infrastructure.",
         objectif: "Déployer un serveur DNS autoritaire sécurisé pour gérer la résolution de noms de domaine interne de l'entreprise avec haute disponibilité et sécurisation DNSSEC.",
         realisation: [
           "Installation de BIND9 sur Ubuntu Server 22.04 avec configuration maître/esclave",
@@ -143,6 +116,7 @@ const Projects = () => {
       category: "virtualisation",
       topology: topologyVmware,
       detailedDescription: {
+        contexte: "L'infrastructure physique de l'entreprise était vieillissante avec des serveurs sous-utilisés. La nécessité de réduire les coûts, d'améliorer la flexibilité et d'assurer la continuité de service a conduit à un projet de virtualisation.",
         objectif: "Concevoir et déployer une infrastructure de virtualisation enterprise-grade avec VMware vSphere pour héberger 30+ machines virtuelles de production.",
         realisation: [
           "Installation de 3 hyperviseurs ESXi 7.0 sur serveurs Dell PowerEdge avec stockage partagé iSCSI",
@@ -167,6 +141,7 @@ const Projects = () => {
       color: "primary",
       category: "serveur",
       detailedDescription: {
+        contexte: "L'entreprise souhaitait héberger en interne plusieurs applications web métier tout en garantissant un niveau de sécurité élevé face aux menaces web modernes (injections SQL, XSS, brute-force).",
         objectif: "Déployer un serveur web LAMP sécurisé pour hébergement d'applications web avec certificat SSL/TLS et configuration hardening selon les best practices.",
         realisation: [
           "Installation et configuration de la stack LAMP (Linux Ubuntu 22.04, Apache 2.4, MySQL 8.0, PHP 8.1)",
@@ -192,6 +167,7 @@ const Projects = () => {
       category: "sécurité",
       topology: topologyPfsense,
       detailedDescription: {
+        contexte: "Suite à plusieurs incidents de sécurité et à l'augmentation du télétravail, l'entreprise avait besoin d'une solution de sécurité périmétrique robuste permettant de protéger le réseau et d'offrir un accès distant sécurisé aux collaborateurs.",
         objectif: "Mettre en place une solution de sécurité périmétrique complète avec pfSense pour protéger le réseau interne, segmenter les flux et permettre l'accès distant sécurisé.",
         realisation: [
           "Installation de pfSense 2.7 sur serveur dédié avec interfaces WAN/LAN/DMZ/GUEST",
@@ -217,6 +193,7 @@ const Projects = () => {
       category: "réseau",
       topology: topologyDatacenter,
       detailedDescription: {
+        contexte: "La construction d'un nouveau datacenter nécessitait la conception d'une architecture réseau moderne, évolutive et hautement disponible pour supporter les charges de production critiques de l'entreprise.",
         objectif: "Concevoir une architecture réseau datacenter redondante et hautement disponible selon le modèle hiérarchique Cisco (Core/Distribution/Access).",
         realisation: [
           "Conception de l'architecture réseau 3-tiers avec switches Cisco Catalyst série 9000",
@@ -242,6 +219,7 @@ const Projects = () => {
       color: "secondary",
       category: "serveur",
       detailedDescription: {
+        contexte: "Après une perte de données critique due à une panne serveur, l'entreprise a pris conscience de l'absence d'une stratégie de sauvegarde structurée. Un projet de mise en place d'une solution de backup centralisée est devenu prioritaire.",
         objectif: "Mettre en place une infrastructure de sauvegarde centralisée automatisée pour protéger les données critiques de 20+ serveurs de production.",
         realisation: [
           "Installation de Bacula sur serveur Debian 11 (Director, Storage Daemon, Catalog MySQL)",
@@ -267,6 +245,7 @@ const Projects = () => {
       color: "primary",
       category: "virtualisation",
       detailedDescription: {
+        contexte: "Les équipes de développement faisaient face à des problèmes récurrents de différences entre environnements (dev/test/prod) causant des bugs en production. La conteneurisation est apparue comme la solution pour standardiser les déploiements.",
         objectif: "Containeriser les applications de l'entreprise avec Docker pour améliorer la portabilité, le déploiement et l'isolation des environnements.",
         realisation: [
           "Installation de Docker Engine sur serveurs Ubuntu 22.04 avec configuration production-ready",
@@ -292,6 +271,7 @@ const Projects = () => {
       color: "secondary",
       category: "serveur",
       detailedDescription: {
+        contexte: "La gestion décentralisée des utilisateurs et des postes de travail (comptes locaux, pas de politique de sécurité uniforme) créait des failles de sécurité et une charge administrative importante pour l'équipe IT.",
         objectif: "Administrer un domaine Active Directory pour centraliser la gestion des utilisateurs, ordinateurs et politiques de sécurité de l'entreprise (150 utilisateurs).",
         realisation: [
           "Installation et configuration de Windows Server 2022 en tant que contrôleur de domaine",
@@ -507,6 +487,16 @@ const Projects = () => {
               </DialogHeader>
 
               <div className="space-y-6 mt-6">
+                {/* Contexte */}
+                <div className="bg-terminal-bg border border-border rounded-lg p-5">
+                  <h4 className="font-mono text-lg font-semibold text-primary mb-3 flex items-center gap-2">
+                    <span className="text-primary">{">"}</span> Contexte
+                  </h4>
+                  <p className="text-foreground leading-relaxed">
+                    {selectedProject.detailedDescription.contexte}
+                  </p>
+                </div>
+
                 {/* Objectif */}
                 <div className="bg-terminal-bg border border-border rounded-lg p-5">
                   <h4 className="font-mono text-lg font-semibold text-primary mb-3 flex items-center gap-2">
