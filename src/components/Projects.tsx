@@ -14,7 +14,7 @@ import topologyAnsible from "@/assets/Ansible.png";
 import topologyAD from "@/assets/ActiveDirectory.png";
 import topologyMQTT from "@/assets/MQTT.png";
 
-type ProjectCategory = "réseau" | "supervision" | "serveur" | "virtualisation" | "sécurité";
+type ProjectCategory = "réseau" | "supervision" | "serveur" | "sécurité";
 
 interface Project {
   title: string;
@@ -571,7 +571,6 @@ const Projects = () => {
     { name: "réseau", label: "Réseau", color: "text-cyan-400" },
     { name: "supervision", label: "Supervision", color: "text-green-400" },
     { name: "serveur", label: "Serveur", color: "text-blue-400" },
-    { name: "virtualisation", label: "Virtualisation", color: "text-purple-400" },
     { name: "sécurité", label: "Sécurité", color: "text-red-400" }
   ];
 
