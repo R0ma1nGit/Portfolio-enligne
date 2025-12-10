@@ -5,11 +5,14 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import topologyMpls from "@/assets/topology-mpls.png";
-import topologyCacti from "@/assets/topology-cacti.png";
+import topologyCacti from "@/assets/Cacti.png";
 import topologyDns from "@/assets/topology-dns.png";
 import topologyVmware from "@/assets/topology-vmware.png";
 import topologyPfsense from "@/assets/topology-pfsense.png";
 import topologyDatacenter from "@/assets/topology-datacenter.png";
+import topologyAnsible from "@/assets/Ansible.png";
+import topologyAD from "@/assets/ActiveDirectory.png";
+import topologyMQTT from "@/assets/MQTT.png";
 
 type ProjectCategory = "réseau" | "supervision" | "serveur" | "virtualisation" | "sécurité";
 
@@ -65,7 +68,7 @@ const Projects = () => {
     
     {
       title: "Supervision Réseau avec Cacti & SNMP",
-      status: "en_cours",
+      status: "termine",
       description:
         "Déploiement d'une architecture de supervision sur un réseau virtualisé segmenté (LAN/NAT).",
       icon: Activity,
@@ -73,7 +76,7 @@ const Projects = () => {
       color: "secondary",
       category: "supervision",
       topology: topologyCacti,
-      rapport: "/LEON-ETIENNE_SAE105_Cacti.pdf",
+      rapport: "/Rapport_Cacti.pdf",
       detailedDescription: {
         contexte: "Dans le cadre d'un projet académique (SAE), l'objectif était de simuler un réseau d'entreprise cloisonné pour en assurer la surveillance, sans accès direct des clients à Internet.",
         objectif: "Mettre en œuvre une chaîne de supervision complète (Manager/Agent) via le protocole SNMP pour monitorer la disponibilité et les ressources d'un parc hétérogène.",
@@ -89,35 +92,6 @@ const Projects = () => {
       }
     },
     {
-      title: "Active Directory & GPO",
-      status: "en_cours",
-      description:
-        "Administration d'un domaine Active Directory avec gestion des utilisateurs, GPO et stratégies de sécurité.",
-      icon: Lock,
-      skills: ["Active Directory", "GPO", "Windows Server", "LDAP"],
-      color: "secondary",
-      category: "serveur",
-      rapport: "/LEON-ETIENNE_SAE105_Cacti.pdf",
-      detailedDescription: {
-        contexte: "La gestion décentralisée des utilisateurs et des postes de travail (comptes locaux, pas de politique de sécurité uniforme) créait des failles de sécurité et une charge administrative importante pour l'équipe IT.",
-        objectif: "Administrer un domaine Active Directory pour centraliser la gestion des utilisateurs, ordinateurs et politiques de sécurité de l'entreprise (150 utilisateurs).",
-        realisation: [
-          "Installation et configuration de Windows Server 2022 en tant que contrôleur de domaine",
-          "Promotion du serveur en DC avec rôle AD DS (Active Directory Domain Services)",
-          "Création de l'arborescence OU (Organizational Units) par département/fonction",
-          "Gestion des comptes utilisateurs et groupes de sécurité avec délégation d'administration",
-          "Configuration des GPO (Group Policy Objects) pour sécurité et paramétrage postes",
-          "Déploiement GPO : politique de mots de passe (12+ caractères, expiration 90j, historique)",
-          "Configuration GPO : verrouillage session auto, déploiement logiciels, mapping lecteurs réseau",
-          "Mise en place de WSUS pour gestion centralisée des mises à jour Windows",
-          "Configuration de la réplication AD avec second DC pour haute disponibilité",
-          "Intégration RADIUS pour authentification réseau sans-fil (802.1X)"
-        ],
-        resultats: "Domaine AD opérationnel gérant 150 utilisateurs et 120 postes. Déploiement de 25 GPO avec conformité sécurité accrue et administration simplifiée.",
-        technologies: ["Windows Server 2022", "Active Directory", "GPO", "WSUS", "DNS", "DHCP", "NPS/RADIUS"]
-      }
-    },
-    {
       title: "Monitoring Multi-Sites TIG (Telegraf-InfluxDB-Grafana)",
       description:
         "Supervision temps réel d'un parc serveurs distribué (Paris/NY/Londres) avec cartographie et alerting.",
@@ -126,7 +100,7 @@ const Projects = () => {
       color: "primary",
       category: "supervision",
       // topology: topologyTIG, // À décommenter si vous ajoutez l'image plus tard
-      // rapport: "/rapport-tig.pdf", // À ajouter si vous créez le PDF
+      rapport: "/Rapport_Meteo.pdf", // À ajouter si vous créez le PDF
       status: "termine",
       detailedDescription: {
         contexte: "Besoin de surveiller en temps réel la santé système (CPU) et la qualité réseau (Latence) d'un parc de serveurs Linux répartis géographiquement (Paris, New York, Londres) sur une interface unique.",
@@ -150,7 +124,8 @@ const Projects = () => {
       skills: ["IoT", "MQTT", "Python", "Docker", "Node-RED", "InfluxDB"],
       color: "secondary",
       category: "supervision",
-      // rapport: "/rapport-iot.pdf", // À décommenter si vous créez le PDF avec le texte fourni
+      topology: topologyMQTT,
+      rapport: "/Rapport_MQTT.pdf", // À décommenter si vous créez le PDF avec le texte fourni
       status: "termine",
       detailedDescription: {
         contexte: "L'objectif était de concevoir un système de télémesure environnementale autonome capable non seulement de remonter des données (Température/Humidité) mais aussi d'être piloté à distance.",
@@ -175,8 +150,8 @@ const Projects = () => {
       color: "primary",
       category: "serveur", // ou "réseau" selon votre préférence
       status: "termine",
-      // topology: topologyAnsible, // À décommenter si vous avez l'image
-      // rapport: "/rapport-tp-ansible.pdf", // À décommenter si vous avez le PDF
+      topology: topologyAnsible,  
+      rapport: "/Rapport_Ansible.pdf",
       detailedDescription: {
         contexte: "Gérer des serveurs un par un est répétitif et source d'erreurs. J'avais besoin d'une méthode pour administrer plusieurs machines simultanément sans me connecter à chacune d'elles.",
         objectif: "Mettre en place un 'centre de contrôle' (Nœud de gestion) capable d'envoyer des configurations et des mises à jour à distance sur tout un parc de machines, de manière automatique et sécurisée.",
@@ -199,7 +174,7 @@ const Projects = () => {
       color: "secondary",
       category: "réseau",
       status: "termine",
-      // rapport: "/Rapport_Routeur_Linux_DMZ.pdf", // À générer avec votre texte
+      rapport: "/Rapport_Reseau_Linux.pdf",
       // topology: topologyLinuxRouter, // Si vous avez l'image du schéma
       detailedDescription: {
         contexte: "Dans les environnements où les équipements dédiés (Cisco/Fortinet) ne sont pas disponibles, il est essentiel de savoir déployer des fonctions réseaux avancées directement via le système d'exploitation Linux.",
@@ -225,7 +200,7 @@ const Projects = () => {
       category: "réseau",
       topology: topologyMpls, // Réutilisez l'image MPLS ou mettez-en une nouvelle
       // rapport: "/Rapport_MPLS_L3VPN.pdf", // À générer avec votre texte
-      status: "termine",
+      status: "en_cours",
       detailedDescription: {
         contexte: "Simulation d'un Fournisseur d'Accès Internet (ISP) devant fournir une connectivité privée et isolée à un client multi-sites ('Carrefour'), en traversant un cœur de réseau partagé.",
         objectif: "Mettre en œuvre une architecture MPLS L3VPN (Layer 3 Virtual Private Network) garantissant l'étanchéité des données client (VRF) et le routage à grande échelle (MP-BGP).",
@@ -248,7 +223,7 @@ const Projects = () => {
       skills: ["MariaDB/MySQL", "Réplication SQL", "Triggers", "Sécurité (RBAC)", "Linux"],
       color: "primary",
       category: "serveur", // ou "système"
-      status: "termine",
+      status: "en_cours",
       // rapport: "/rapport-bdd.pdf", // À générer avec votre texte
       detailedDescription: {
         contexte: "Pour garantir la continuité de service d'une application critique (type E-commerce), une base de données isolée représente un point unique de défaillance (SPOF). Il était nécessaire d'assurer la redondance des données.",
@@ -273,7 +248,7 @@ const Projects = () => {
       color: "secondary", // Rouge pour la sécurité (ou gardez votre code couleur)
       category: "sécurité",
       // rapport: "/Rapport_Stormshield_SN310.pdf", // À générer
-      status: "termine",
+      status: "en_cours",
       detailedDescription: {
         contexte: "Dans un contexte d'exigence de souveraineté numérique (similaire aux contraintes des OIV/Hôpitaux), l'objectif était de sécuriser l'interconnexion d'un réseau d'entreprise via une solution certifiée ANSSI.",
         objectif: "Intégrer un pare-feu physique Stormshield SN310 pour segmenter les zones de confiance (LAN, DMZ, WAN) et appliquer une politique de sécurité stricte.",
@@ -296,8 +271,9 @@ const Projects = () => {
       skills: ["Active Directory DS", "Windows Server", "DNS", "Gestion IAM", "Virtualisation"],
       color: "secondary",
       category: "serveur", // ou "système"
+      topology: topologyAD,
       status: "termine",
-      // rapport: "/Rapport_Active_Directory.pdf", // Pensez à créer le PDF avec votre texte !
+      rapport: "/Rapport_Active_Directory.pdf", 
       detailedDescription: {
         contexte: "Pour centraliser l'administration d'un parc informatique (simulé pour un IUT), il était nécessaire de passer d'une gestion en Workgroup (poste à poste) à une architecture de Domaine centralisée.",
         objectif: "Installer et configurer un Contrôleur de Domaine (DC) sous Windows Server 2016, structurer l'annuaire et valider l'authentification des clients.",
@@ -312,6 +288,35 @@ const Projects = () => {
         technologies: ["Windows Server 2016", "AD DS", "DNS", "VirtualBox", "Clonage VM"]
       }
     },
+     // {
+    //   title: "Active Directory & GPO",
+    //   status: "en_cours",
+    //   description:
+    //     "Administration d'un domaine Active Directory avec gestion des utilisateurs, GPO et stratégies de sécurité.",
+    //   icon: Lock,
+    //   skills: ["Active Directory", "GPO", "Windows Server", "LDAP"],
+    //   color: "secondary",
+    //   category: "serveur",
+    //   rapport: "/Rapport_Active_Directory.pdf",
+    //   detailedDescription: {
+    //     contexte: "La gestion décentralisée des utilisateurs et des postes de travail (comptes locaux, pas de politique de sécurité uniforme) créait des failles de sécurité et une charge administrative importante pour l'équipe IT.",
+    //     objectif: "Administrer un domaine Active Directory pour centraliser la gestion des utilisateurs, ordinateurs et politiques de sécurité de l'entreprise (150 utilisateurs).",
+    //     realisation: [
+    //       "Installation et configuration de Windows Server 2022 en tant que contrôleur de domaine",
+    //       "Promotion du serveur en DC avec rôle AD DS (Active Directory Domain Services)",
+    //       "Création de l'arborescence OU (Organizational Units) par département/fonction",
+    //       "Gestion des comptes utilisateurs et groupes de sécurité avec délégation d'administration",
+    //       "Configuration des GPO (Group Policy Objects) pour sécurité et paramétrage postes",
+    //       "Déploiement GPO : politique de mots de passe (12+ caractères, expiration 90j, historique)",
+    //       "Configuration GPO : verrouillage session auto, déploiement logiciels, mapping lecteurs réseau",
+    //       "Mise en place de WSUS pour gestion centralisée des mises à jour Windows",
+    //       "Configuration de la réplication AD avec second DC pour haute disponibilité",
+    //       "Intégration RADIUS pour authentification réseau sans-fil (802.1X)"
+    //     ],
+    //     resultats: "Domaine AD opérationnel gérant 150 utilisateurs et 120 postes. Déploiement de 25 GPO avec conformité sécurité accrue et administration simplifiée.",
+    //     technologies: ["Windows Server 2022", "Active Directory", "GPO", "WSUS", "DNS", "DHCP", "NPS/RADIUS"]
+    //   }
+    // },
     // {
     //   title: "Serveur DNS Autoritaire BIND9",
     //   status: "en_cours",
@@ -968,7 +973,7 @@ const Projects = () => {
               
               {/* Iframe */}
               <iframe 
-                src={`${selectedProject.rapport}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
+                src={`${selectedProject.rapport}#toolbar=0&navpanes=0&scrollbar=1&view=Fit`}
                 className="w-full h-full border-0"
                 title={`Compte rendu - ${selectedProject.title}`}
                 style={{ pointerEvents: 'auto' }}
