@@ -90,7 +90,7 @@ const Hero = () => {
 
           {/* Social Links */}
           <div className="flex gap-4 justify-center items-center">
-            <a
+            {/* <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -98,7 +98,7 @@ const Hero = () => {
               aria-label="GitHub"
             >
               <Github size={20} />
-            </a>
+            </a> */}
             <a
               href="https://linkedin.com"
               target="_blank"
