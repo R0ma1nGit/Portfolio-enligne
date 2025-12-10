@@ -14,7 +14,7 @@ import topologyAnsible from "@/assets/Ansible.png";
 import topologyAD from "@/assets/ActiveDirectory.png";
 import topologyMQTT from "@/assets/MQTT.png";
 
-type ProjectCategory = "réseau" | "supervision" | "serveur" | "sécurité";
+type ProjectCategory = "réseau" | "supervision" | "serveur" |"sécurité";
 
 interface Project {
   title: string;
@@ -117,15 +117,16 @@ const Projects = () => {
       }
     },
     {
-      title: "IoT Monitoring & Contrôle M2M (Pycom/MQTT)",
+      title: "Chaîne IoT & Supervision de bout en bout", // Titre aligné sur le CV
       description:
-        "Chaîne d'acquisition IoT complète : Capteurs, Broker MQTT, Stockage InfluxDB et Pilotage via Node-RED.",
+        "Acquisition de données Température/Humidité (MQTT, InfluxDB) et mise en place d'alertes de dépassement (Grafana).",
       icon: Wifi,
-      skills: ["IoT", "MQTT", "Python", "Docker", "Node-RED", "InfluxDB"],
+      // Stack alignée sur l'image : Docker • Python • MQTT • Grafana • InfluxDB
+      skills: ["Docker", "Python", "MQTT", "Grafana", "InfluxDB"], 
       color: "secondary",
       category: "supervision",
       topology: topologyMQTT,
-      rapport: "/Rapport_MQTT.pdf", // À décommenter si vous créez le PDF avec le texte fourni
+      rapport: "/Rapport_MQTT.pdf",
       status: "termine",
       detailedDescription: {
         contexte: "L'objectif était de concevoir un système de télémesure environnementale autonome capable non seulement de remonter des données (Température/Humidité) mais aussi d'être piloté à distance.",
@@ -135,10 +136,10 @@ const Projects = () => {
           "Déploiement d'une infrastructure Docker sur Debian 12 hébergeant : InfluxDB (Base de données), Grafana (Visu) et Mosquitto (Broker)",
           "Développement d'un script 'Bridge' en Python pour intercepter les topics MQTT et injecter les métriques dans InfluxDB",
           "Mise en place d'un Dashboard de contrôle Node-RED permettant d'envoyer des ordres (Pause/Reprise) aux capteurs en temps réel",
-          "Résolution de problématiques d'intégration : Gestion des droits sur les volumes Docker et typage des données GPS/Flottants"
+          "Recettes de test : Configuration des seuils d'alerte (Alerting) pour détecter les dépassements de température critiques" // Ajouté pour coller au CV
         ],
-        resultats: "Système opérationnel permettant la visualisation temps réel des courbes environnementales et le pilotage bidirectionnel des sondes (latence < 500ms).",
-        technologies: ["Pycom (MicroPython)", "MQTT (Mosquitto)", "Python Scripting", "Docker Compose", "InfluxDB (Flux)", "Grafana", "Node-RED"]
+        resultats: "Système opérationnel permettant la visualisation temps réel des courbes environnementales et le déclenchement d'alertes automatiques.",
+        technologies: ["Pycom (MicroPython)", "MQTT (Mosquitto)", "Python Scripting", "Docker Compose", "InfluxDB", "Grafana"]
       }
     },
     {
