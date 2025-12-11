@@ -1,4 +1,4 @@
-import { Network, Server, Globe, ArrowRight, Activity, Shield, Cloud, Layers, HardDrive, Lock, FileText, AlertTriangle, Loader2, X, CheckCircle2, ClipboardCheck, Monitor, Wifi, Workflow, Database, Users } from "lucide-react";
+import { Network, Server, Globe, ArrowRight, Activity, Shield, Cloud, Layers, HardDrive, Lock, FileText, AlertTriangle, Loader2, X, CheckCircle2, ClipboardCheck, Monitor, Wifi, Workflow, Database, Users, Book } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
@@ -201,7 +201,7 @@ const Projects = () => {
       color: "primary",
       category: "réseau",
       topology: topologyMpls,
-      rapport: "/Rapport_MPLS_L3VPN.pdf",
+      // rapport: "/Rapport_MPLS_L3VPN.pdf",
       status: "termine",
       detailedDescription: {
         contexte: "Simulation d'un cœur de réseau Opérateur (ISP) devant interconnecter les sites distants d'un client ('Carrefour') tout en garantissant une étanchéité totale du trafic vis-à-vis des autres clients.",
@@ -288,6 +288,31 @@ const Projects = () => {
         ],
         resultats: "Domaine opérationnel avec une base d'utilisateurs structurée. Les postes clients peuvent s'authentifier sur le réseau via le Contrôleur de Domaine.",
         technologies: ["Windows Server 2016", "AD DS", "DNS", "VirtualBox", "Clonage VM"]
+      }
+    },
+    {
+      title: "Administration d'Annuaire Centralisé (OpenLDAP/Linux)", // Nouveau titre
+      description:
+        "Mise en œuvre d'un service d'annuaire sous Linux (équivalent AD) : Installation, Peuplement (LDIF) et Sauvegarde.",
+      icon: Book,
+      skills: ["OpenLDAP", "Linux Debian", "LDIF", "Backup/Restore", "SSH"],
+      color: "secondary",
+      category: "serveur",
+      status: "en_cours",
+      // topology: topologyLDAP, 
+      // rapport: "/Rapport_OpenLDAP.pdf", 
+      detailedDescription: {
+        contexte: "Dans le cadre de la gestion des identités d'une entreprise multisites (Simulation 'Yourtaf'), il était nécessaire de mettre en place une alternative open-source à Active Directory pour centraliser les comptes utilisateurs et les ressources.",
+        objectif: "Installer, configurer et peupler un serveur OpenLDAP sous Debian pour gérer une hiérarchie complexe (Unités d'Organisation, Groupes, Utilisateurs) et assurer la persistance des données.",
+        realisation: [
+          "Préparation de l'environnement : Configuration d'une VM Debian et sécurisation des accès (SSH, Sudoers)",
+          "Installation et Configuration : Déploiement du service 'slapd', configuration du domaine (dc=yourtaf,dc=com) et des fichiers de conf",
+          "Structuration de l'Annuaire : Conception de l'arborescence (DIT) et création des fichiers LDIF pour les OUs (Commerciaux, Employés)",
+          "Gestion des Entrées : Peuplement en masse via 'ldapadd', requêtes de filtrage complexes avec 'ldapsearch' et modification d'attributs",
+          "Maintenance & Sécurité : Mise en place de procédures de sauvegarde (slapcat) et de restauration complète (slapadd) de la base de données"
+        ],
+        resultats: "Serveur d'annuaire opérationnel permettant l'authentification centralisée. Maîtrise des commandes de manipulation LDAP (CRUD) et validation des procédures de reprise après sinistre (Backup/Restore).",
+        technologies: ["OpenLDAP", "Debian 11", "LDIF", "Slapcat", "SSH", "VirtualBox"]
       }
     },
      // {
