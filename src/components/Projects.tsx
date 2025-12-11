@@ -197,7 +197,7 @@ const Projects = () => {
         "Conception d'un réseau opérateur multi-clients (MPLS/VPN). Déploiement de services virtualisés (DNS, DHCP, Web) sous Linux.",
       icon: Globe,
       // Stack exacte du CV : Cisco IOS • GNS3 • Linux • Cacti
-      skills: ["Cisco IOS", "GNS3", "Linux", "Cacti"], 
+      skills: ["Cisco IOS", "GNS3", "Linux", "Wireshark"], 
       color: "primary",
       category: "réseau",
       // topology: topologyMpls,
