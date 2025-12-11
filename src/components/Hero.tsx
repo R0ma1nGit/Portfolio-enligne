@@ -77,7 +77,7 @@ const Hero = () => {
               </span>
             </button>
             <a
-  href="/LEON_Romain-Curriculum_Vitae.pdf"
+  href="/CV_Romain_LEON_Portfolio.pdf"
   download="LEON_Romain-Curriculum_Vitae.pdf"
   className="px-8 py-3 bg-secondary text-secondary-foreground font-mono font-semibold rounded-lg hover:scale-105 transition-transform border-glow group"
 >
@@ -124,5 +124,6 @@ const Hero = () => {
 };
 
 export default Hero;
+
 
 
