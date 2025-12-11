@@ -225,8 +225,8 @@ const Projects = () => {
       skills: ["MariaDB/MySQL", "Réplication SQL", "Triggers", "Sécurité (RBAC)", "Linux"],
       color: "primary",
       category: "serveur", // ou "système"
-      status: "en_cours",
-      // rapport: "/rapport-bdd.pdf", // À générer avec votre texte
+      status: "termine",
+      rapport: "/Rapport_MySQL.pdf", 
       detailedDescription: {
         contexte: "Pour garantir la continuité de service d'une application critique (type E-commerce), une base de données isolée représente un point unique de défaillance (SPOF). Il était nécessaire d'assurer la redondance des données.",
         objectif: "Concevoir une base de données relationnelle complexe (Procédures stockées, Triggers) et déployer une réplication Maître-Esclave (puis bidirectionnelle) pour assurer la haute disponibilité.",
