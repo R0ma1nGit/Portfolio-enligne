@@ -191,29 +191,30 @@ const Projects = () => {
         technologies: ["Debian Linux", "iptables (Netfilter)", "Apache2", "Tcpdump", "VLAN", "VirtualBox"]
       }
     },
-    {
-      title: "Architecture Opérateur L3VPN (MPLS/VRF/BGP)",
+  {
+      title: "Architecture MPLS & Virtualisation", // Titre aligné sur le CV
       description:
-        "Conception d'un backbone ISP complet : Isolation client par VRF et transport via MP-BGP.",
+        "Conception d'un réseau opérateur multi-clients (MPLS/VPN). Déploiement de services virtualisés (DNS, DHCP, Web) sous Linux.",
       icon: Globe,
-      skills: ["MPLS L3VPN", "MP-BGP", "VRF", "Cisco IOS", "Wireshark"],
+      // Stack exacte du CV : Cisco IOS • GNS3 • Linux • Cacti
+      skills: ["Cisco IOS", "GNS3", "Linux", "Cacti"], 
       color: "primary",
       category: "réseau",
-      topology: topologyMpls, // Réutilisez l'image MPLS ou mettez-en une nouvelle
-      // rapport: "/Rapport_MPLS_L3VPN.pdf", // À générer avec votre texte
-      status: "en_cours",
+      // topology: topologyMpls,
+      // rapport: "/Rapport_MPLS_L3VPN.pdf",
+      status: "termine",
       detailedDescription: {
         contexte: "Simulation d'un Fournisseur d'Accès Internet (ISP) devant fournir une connectivité privée et isolée à un client multi-sites ('Carrefour'), en traversant un cœur de réseau partagé.",
-        objectif: "Mettre en œuvre une architecture MPLS L3VPN (Layer 3 Virtual Private Network) garantissant l'étanchéité des données client (VRF) et le routage à grande échelle (MP-BGP).",
+        objectif: "Concevoir une architecture MPLS L3VPN et déployer les services réseaux associés dans un environnement virtualisé.",
         realisation: [
-          "Configuration du Backbone IGP (OSPF Area 0) et activation du Label Switching (LDP) sur les routeurs P/PE",
-          "Création des VRF (Virtual Routing and Forwarding) sur les routeurs PE avec définition des Route Distinguishers (RD) et Route Targets (RT) pour l'isolation",
-          "Déploiement de sessions MP-BGP (Multi-Protocol BGP) pour l'échange de routes VPNv4 entre les sites distants",
-          "Configuration de la redistribution bidirectionnelle entre le routage client (OSPF) et le protocole opérateur (BGP)",
-          "Analyse approfondie de trames Wireshark : Décorticage de la pile de labels MPLS (Label de transport vs Label VPN) et des messages BGP Update"
+          "Configuration du Backbone IGP (OSPF) et activation du MPLS (LDP) sur les routeurs",
+          "Mise en place des VRF pour l'isolation des clients et déploiement de MP-BGP",
+          "Sécurisation & Segmentation : Mise en place d'ACL pour filtrer le trafic et isolation par VLAN (802.1Q)", // Ajouté pour coller au CV
+          "Déploiement de services virtualisés sous Linux (Serveur Web, DHCP) pour simuler l'accès client",
+          "Supervision de l'état des liens avec Cacti (SNMP)"
         ],
-        resultats: "Interconnexion des sites clients opérationnelle avec isolation totale du trafic. Validation technique du mécanisme de commutation par labels (LSP) et de la propagation des routes VPNv4.",
-        technologies: ["Cisco IOS", "MPLS", "MP-BGP", "VRF", "OSPF", "LDP", "Wireshark"]
+        resultats: "Réseau opérateur fonctionnel avec isolation stricte des clients et services annexes opérationnels.",
+        technologies: ["Cisco IOS", "GNS3", "Linux Debian", "Cacti", "MPLS"]
       }
     },
     {
