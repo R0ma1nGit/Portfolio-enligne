@@ -191,30 +191,30 @@ const Projects = () => {
         technologies: ["Debian Linux", "iptables (Netfilter)", "Apache2", "Tcpdump", "VLAN", "VirtualBox"]
       }
     },
-  {
+{
       title: "Architecture MPLS & Virtualisation", // Titre aligné sur le CV
       description:
-        "Conception d'un réseau opérateur multi-clients (MPLS/VPN). Déploiement de services virtualisés (DNS, DHCP, Web) sous Linux.",
+        "Conception d'un réseau opérateur L3VPN complet : Isolation clients (VRF), Routage (OSPF/BGP) et Analyse protocolaire.",
       icon: Globe,
-      // Stack exacte du CV : Cisco IOS • GNS3 • Linux • Cacti
-      skills: ["Cisco IOS", "GNS3", "Linux", "Wireshark"], 
+      // Stack mise à jour : Wireshark est plus pertinent que Cacti ici
+      skills: ["Cisco IOS", "GNS3", "MPLS", "Wireshark"], 
       color: "primary",
       category: "réseau",
-      // topology: topologyMpls,
-      // rapport: "/Rapport_MPLS_L3VPN.pdf",
+      topology: topologyMpls,
+      rapport: "/Rapport_MPLS_L3VPN.pdf",
       status: "termine",
       detailedDescription: {
-        contexte: "Simulation d'un Fournisseur d'Accès Internet (ISP) devant fournir une connectivité privée et isolée à un client multi-sites ('Carrefour'), en traversant un cœur de réseau partagé.",
-        objectif: "Concevoir une architecture MPLS L3VPN et déployer les services réseaux associés dans un environnement virtualisé.",
+        contexte: "Simulation d'un cœur de réseau Opérateur (ISP) devant interconnecter les sites distants d'un client ('Carrefour') tout en garantissant une étanchéité totale du trafic vis-à-vis des autres clients.",
+        objectif: "Mettre en œuvre une architecture MPLS L3VPN complète : Routage interne (OSPF), Commutation de labels (LDP), Isolation (VRF) et propagation des routes VPNv4 (MP-BGP).",
         realisation: [
-          "Configuration du Backbone IGP (OSPF) et activation du MPLS (LDP) sur les routeurs",
-          "Mise en place des VRF pour l'isolation des clients et déploiement de MP-BGP",
-          "Sécurisation & Segmentation : Mise en place d'ACL pour filtrer le trafic et isolation par VLAN (802.1Q)", // Ajouté pour coller au CV
-          "Déploiement de services virtualisés sous Linux (Serveur Web, DHCP) pour simuler l'accès client",
-          "Supervision de l'état des liens avec Cacti (SNMP)"
+          "Configuration du Backbone IGP (OSPF Area 0) et activation du protocole LDP sur les interfaces de cœur",
+          "Création des instances de routage virtuel (VRF) sur les routeurs PE pour isoler le client 'Carrefour'",
+          "Configuration des sessions MP-BGP pour l'échange de routes VPNv4 entre les routeurs de bordure (PE)",
+          "Mise en place de la redistribution bidirectionnelle entre le routage client (OSPF) et le BGP opérateur",
+          "Analyse Wireshark : Décorticage de la pile de labels MPLS (Label de transport vs Label VPN) et des messages BGP Update"
         ],
-        resultats: "Réseau opérateur fonctionnel avec isolation stricte des clients et services annexes opérationnels.",
-        technologies: ["Cisco IOS", "GNS3", "Linux Debian", "Cacti", "MPLS"]
+        resultats: "Interconnexion des sites clients opérationnelle (Ping validé). Maîtrise des mécanismes de forwarding MPLS (Swap/Pop) et de la signalisation BGP VPNv4.",
+        technologies: ["Cisco IOS", "GNS3", "MPLS L3VPN", "MP-BGP", "Wireshark"]
       }
     },
     {
