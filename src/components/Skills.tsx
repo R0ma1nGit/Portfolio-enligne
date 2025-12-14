@@ -93,7 +93,7 @@ const Skills = () => {
             </span>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {["Linux", "Cisco", "MPLS", "Supervision / SNMP", "Docker", "Windows", "Virtualisation", "", ""].map(
+            {["Linux", "Cisco", "MPLS", "Supervision / SNMP", "Docker", "Windows", "Virtualisation", "TESt"].map(
               (tech, index) => (
                 <div
                   key={index}
@@ -111,5 +111,6 @@ const Skills = () => {
 };
 
 export default Skills;
+
 
 
