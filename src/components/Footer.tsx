@@ -17,13 +17,13 @@ const Footer = () => {
           </div>
 
           <div className="flex items-center gap-4">
-            <a
+            {/* <a
               href="#"
               className="p-2 bg-muted hover:bg-primary/10 rounded-lg transition-colors group"
               aria-label="GitHub"
             >
               <Github size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
-            </a>
+            </a> */}
             <a
               href="#"
               className="p-2 bg-muted hover:bg-primary/10 rounded-lg transition-colors group"
