@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Mail, Send, CheckCircle, Loader2, Phone } from "lucide-react"; // J'ai ajouté l'icône Phone
+import { Mail, Send, CheckCircle, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
 
@@ -7,16 +7,32 @@ const Contact = () => {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
-  // 1. Ajout du champ 'phone' dans le state
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "", // <--- Nouveau champ
+    phone: "",
     message: "",
   });
   
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  // 👇 NOUVELLE FONCTION : Gestion intelligente du téléphone
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+
+    // 1. On supprime tout ce qui n'est pas un chiffre (lettres, symboles...)
+    const cleanValue = value.replace(/\D/g, "");
+
+    // 2. On limite à 10 chiffres maximum
+    const truncatedValue = cleanValue.slice(0, 10);
+
+    // 3. On ajoute un espace tous les 2 chiffres
+    // La regex /(\d{2})(?=\d)/g signifie : "Prends 2 chiffres s'ils sont suivis par un autre chiffre"
+    const formattedValue = truncatedValue.replace(/(\d{2})(?=\d)/g, "$1 ");
+
+    setFormData({ ...formData, phone: formattedValue });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,7 +58,6 @@ const Contact = () => {
               description: "Je vous répondrai dans les plus brefs délais.",
             });
 
-            // 2. Reset du formulaire (y compris le téléphone)
             setTimeout(() => {
               setFormData({ name: "", email: "", phone: "", message: "" });
               setIsSubmitted(false);
@@ -73,7 +88,6 @@ const Contact = () => {
 
         <div className="max-w-2xl mx-auto">
           <div className="bg-terminal-bg border border-border border-glow rounded-lg overflow-hidden">
-            {/* Terminal header */}
             <div className="bg-card border-b border-border px-4 py-3 flex items-center gap-2">
               <div className="flex gap-2">
                 <div className="w-3 h-3 rounded-full bg-destructive"></div>
@@ -85,7 +99,6 @@ const Contact = () => {
               </span>
             </div>
 
-            {/* Terminal content */}
             <div className="p-6">
               <div className="mb-6">
                 <p className="font-mono text-sm text-muted-foreground mb-2">
@@ -144,18 +157,18 @@ const Contact = () => {
                     />
                   </div>
 
-                  {/* 👇 NOUVEAU CHAMP TÉLÉPHONE ICI */}
+                  {/* 👇 INPUT TÉLÉPHONE AMÉLIORÉ */}
                   <div>
                     <label className="font-mono text-sm text-muted-foreground block mb-2">
                       <span className="text-primary">{">"}</span> Téléphone:
                     </label>
                     <input
                       type="tel"
-                      name="user_phone" // Important pour EmailJS : {{user_phone}}
+                      name="user_phone"
                       value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
+                      onChange={handlePhoneChange} // Utilise la nouvelle fonction
+                      maxLength={14} // 10 chiffres + 4 espaces = 14 caractères
+                      inputMode="numeric" // Affiche le clavier numérique sur mobile
                       className="w-full bg-muted border border-border rounded px-4 py-2 font-mono text-sm focus:border-primary focus:outline-none transition-colors"
                       placeholder="06 92 XX XX XX"
                       disabled={isLoading}
