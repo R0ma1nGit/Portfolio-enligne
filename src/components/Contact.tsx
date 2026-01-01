@@ -144,7 +144,7 @@ const Contact = () => {
               className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors"
             >
               <Mail size={20} />
-              <span className="font-mono">r.eon@rt-iut.re</span>
+              <span className="font-mono">r.leon@rt-iut.re</span>
             </a>
           </div>
         </div>
@@ -154,4 +154,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
 
