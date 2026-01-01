@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Mail, Send, CheckCircle, Loader2 } from "lucide-react";
+import { Mail, Send, CheckCircle, Loader2, Phone } from "lucide-react"; // J'ai ajouté l'icône Phone
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
 
@@ -7,9 +7,11 @@ const Contact = () => {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
+  // 1. Ajout du champ 'phone' dans le state
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "", // <--- Nouveau champ
     message: "",
   });
   
@@ -21,11 +23,11 @@ const Contact = () => {
     setIsLoading(true);
 
     // ============================================================
-    // 👇 REMPLACEZ CES 3 VALEURS PAR LES VÔTRES (Dashboard EmailJS)
+    // VOS CLES EMAILJS
     // ============================================================
-    const SERVICE_ID = "service_ruo4b1u";   // Ex: service_m9p...
-    const TEMPLATE_ID = "template_winqrwj"; // Ex: template_8x...
-    const PUBLIC_KEY = "w4GaojgBlqmRsB3gl"; // Ex: w90_Jk... (Public Key dans Account)
+    const SERVICE_ID = "service_ruo4b1u";
+    const TEMPLATE_ID = "template_winqrwj";
+    const PUBLIC_KEY = "w4GaojgBlqmRsB3gl"; 
     // ============================================================
 
     if (formRef.current) {
@@ -33,7 +35,6 @@ const Contact = () => {
         .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
         .then(
           (result) => {
-            // Succès
             setIsSubmitted(true);
             setIsLoading(false);
             toast({
@@ -41,14 +42,13 @@ const Contact = () => {
               description: "Je vous répondrai dans les plus brefs délais.",
             });
 
-            // Reset du formulaire après 5 secondes
+            // 2. Reset du formulaire (y compris le téléphone)
             setTimeout(() => {
-              setFormData({ name: "", email: "", message: "" });
+              setFormData({ name: "", email: "", phone: "", message: "" });
               setIsSubmitted(false);
             }, 5000);
           },
           (error) => {
-            // Erreur
             setIsLoading(false);
             console.error(error);
             toast({
@@ -140,6 +140,24 @@ const Contact = () => {
                       }
                       className="w-full bg-muted border border-border rounded px-4 py-2 font-mono text-sm focus:border-primary focus:outline-none transition-colors"
                       placeholder="votre@email.com"
+                      disabled={isLoading}
+                    />
+                  </div>
+
+                  {/* 👇 NOUVEAU CHAMP TÉLÉPHONE ICI */}
+                  <div>
+                    <label className="font-mono text-sm text-muted-foreground block mb-2">
+                      <span className="text-primary">{">"}</span> Téléphone:
+                    </label>
+                    <input
+                      type="tel"
+                      name="user_phone" // Important pour EmailJS : {{user_phone}}
+                      value={formData.phone}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
+                      className="w-full bg-muted border border-border rounded px-4 py-2 font-mono text-sm focus:border-primary focus:outline-none transition-colors"
+                      placeholder="06 92 XX XX XX"
                       disabled={isLoading}
                     />
                   </div>
