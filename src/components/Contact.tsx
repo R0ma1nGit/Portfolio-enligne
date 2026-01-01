@@ -1,31 +1,64 @@
-import { useState } from "react";
-import { Mail, Send, CheckCircle } from "lucide-react";
+import { useState, useRef } from "react";
+import { Mail, Send, CheckCircle, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const { toast } = useToast();
+  const formRef = useRef<HTMLFormElement>(null);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Simulate form submission
-    setIsSubmitted(true);
-    toast({
-      title: "Message envoyé !",
-      description: "Je vous répondrai dans les plus brefs délais.",
-    });
+    setIsLoading(true);
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({ name: "", email: "", message: "" });
-      setIsSubmitted(false);
-    }, 3000);
+    // ============================================================
+    // 👇 REMPLACEZ CES 3 VALEURS PAR LES VÔTRES (Dashboard EmailJS)
+    // ============================================================
+    const SERVICE_ID = "service_ruo4b1u";   // Ex: service_m9p...
+    const TEMPLATE_ID = "template_winqrwj"; // Ex: template_8x...
+    const PUBLIC_KEY = "w4GaojgBlqmRsB3gl"; // Ex: w90_Jk... (Public Key dans Account)
+    // ============================================================
+
+    if (formRef.current) {
+      emailjs
+        .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+        .then(
+          (result) => {
+            // Succès
+            setIsSubmitted(true);
+            setIsLoading(false);
+            toast({
+              title: "Message envoyé !",
+              description: "Je vous répondrai dans les plus brefs délais.",
+            });
+
+            // Reset du formulaire après 5 secondes
+            setTimeout(() => {
+              setFormData({ name: "", email: "", message: "" });
+              setIsSubmitted(false);
+            }, 5000);
+          },
+          (error) => {
+            // Erreur
+            setIsLoading(false);
+            console.error(error);
+            toast({
+              variant: "destructive",
+              title: "Erreur",
+              description: "Une erreur est survenue. Vérifiez vos clés EmailJS.",
+            });
+          }
+        );
+    }
   };
 
   return (
@@ -56,10 +89,10 @@ const Contact = () => {
             <div className="p-6">
               <div className="mb-6">
                 <p className="font-mono text-sm text-muted-foreground mb-2">
-                  <span className="text-primary">admin@contact:~$</span> ping moi
+                  <span className="text-primary">admin@contact:~$</span> ./send_message.sh
                 </p>
                 <p className="font-mono text-sm text-secondary mb-4">
-                  {">"} Initializing contact protocol...
+                  {">"} Initializing secure connection...
                 </p>
               </div>
 
@@ -67,20 +100,21 @@ const Contact = () => {
                 <div className="py-12 text-center">
                   <CheckCircle className="w-16 h-16 text-secondary mx-auto mb-4 animate-pulse-glow" />
                   <p className="font-mono text-lg text-secondary mb-2">
-                    {">"} Reply from Admin: Message sent successfully!
+                    {">"} Message sent successfully!
                   </p>
                   <p className="font-mono text-sm text-muted-foreground">
-                    64 bytes from admin: ttl=64 time=0.01ms
+                    Acknowledgement received from server.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <label className="font-mono text-sm text-muted-foreground block mb-2">
                       <span className="text-primary">{">"}</span> Nom:
                     </label>
                     <input
                       type="text"
+                      name="user_name" 
                       required
                       value={formData.name}
                       onChange={(e) =>
@@ -88,6 +122,7 @@ const Contact = () => {
                       }
                       className="w-full bg-muted border border-border rounded px-4 py-2 font-mono text-sm focus:border-primary focus:outline-none transition-colors"
                       placeholder="Votre nom"
+                      disabled={isLoading}
                     />
                   </div>
 
@@ -97,6 +132,7 @@ const Contact = () => {
                     </label>
                     <input
                       type="email"
+                      name="user_email"
                       required
                       value={formData.email}
                       onChange={(e) =>
@@ -104,6 +140,7 @@ const Contact = () => {
                       }
                       className="w-full bg-muted border border-border rounded px-4 py-2 font-mono text-sm focus:border-primary focus:outline-none transition-colors"
                       placeholder="votre@email.com"
+                      disabled={isLoading}
                     />
                   </div>
 
@@ -112,6 +149,7 @@ const Contact = () => {
                       <span className="text-primary">{">"}</span> Message:
                     </label>
                     <textarea
+                      name="message"
                       required
                       value={formData.message}
                       onChange={(e) =>
@@ -120,15 +158,26 @@ const Contact = () => {
                       rows={6}
                       className="w-full bg-muted border border-border rounded px-4 py-2 font-mono text-sm focus:border-primary focus:outline-none transition-colors resize-none"
                       placeholder="Votre message..."
+                      disabled={isLoading}
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 bg-primary text-primary-foreground font-mono font-semibold rounded-lg hover:scale-105 transition-transform border-glow flex items-center justify-center gap-2"
+                    disabled={isLoading}
+                    className="w-full px-6 py-3 bg-primary text-primary-foreground font-mono font-semibold rounded-lg hover:scale-105 transition-transform border-glow flex items-center justify-center gap-2 disabled:opacity-70 disabled:hover:scale-100"
                   >
-                    <Send size={18} />
-                    <span>Envoyer le message</span>
+                    {isLoading ? (
+                      <>
+                        <Loader2 size={18} className="animate-spin" />
+                        <span>Transmission...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send size={18} />
+                        <span>Envoyer le message</span>
+                      </>
+                    )}
                   </button>
                 </form>
               )}
@@ -140,7 +189,7 @@ const Contact = () => {
               Ou contactez-moi directement :
             </p>
             <a
-              href="mailto:contact@example.com"
+              href="mailto:r.leon@rt-iut.re"
               className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors"
             >
               <Mail size={20} />
@@ -154,5 +203,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
