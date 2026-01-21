@@ -50,13 +50,10 @@ const About = () => {
                   <span className="font-mono text-muted-foreground">cat about.txt</span>
                 </div>
                 <p className="text-foreground leading-relaxed text-sm">
-                  Passionné par l'univers des réseaux et des télécommunications, je me spécialise 
-                  dans la configuration d'infrastructures réseau complexes (MPLS, OSPF, EIGRP), 
-                  l'administration de systèmes Linux, et la supervision d'infrastructures IT.
+                  Passionné par l’univers des réseaux informatiques, je m’intéresse particulièrement à la conception et à la configuration d’infrastructures réseau complexes (MPLS, OSPF, EIGRP), ainsi qu’à la supervision et au bon fonctionnement des infrastructures IT.
                 </p>
                 <p className="text-foreground leading-relaxed mt-3 text-sm">
-                  Je recherche activement des opportunités pour approfondir mes compétences en 
-                  administration réseau et système, dans un environnement technique stimulant.
+                  Je développe également des compétences en systèmes, à travers des projets et des mises en pratique. Je recherche activement des opportunités pour approfondir mes compétences en administration réseau et système, dans un environnement technique stimulant.
                 </p>
               </div>
             </div>

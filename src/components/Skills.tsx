@@ -9,9 +9,9 @@ const Skills = () => {
       color: "primary",
     },
     {
-      title: "Systèmes",
-      icon: Server,
-      skills: ["Linux", "Windows Server", "Administration Système", "Virtualisation"],
+      title: "Supervision",
+      icon: Shield,
+      skills: ["Cacti", "Monitoring", "SNMP", "Gestion d'incidents", "Grafana",],
       color: "secondary",
     },
     {
@@ -21,15 +21,15 @@ const Skills = () => {
       color: "primary",
     },
     {
-      title: "Supervision",
-      icon: Shield,
-      skills: ["Cacti", "Monitoring", "SNMP", "Gestion d'incidents"],
+      title: "Systèmes",
+      icon: Server,
+      skills: ["Linux", "Windows Server", "Administration Système", "Virtualisation"],
       color: "secondary",
     },
     {
       title: "Virtualisation",
       icon: HardDrive,
-      skills: ["VMware", "VirtualBox", "Containers", "Environnements virtuels"],
+      skills: ["VMware", "VirtualBox", "Docker", "Environnements virtuels"],
       color: "primary",
     },
     {
