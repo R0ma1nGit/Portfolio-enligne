@@ -85,7 +85,7 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className="mt-12 max-w-4xl mx-auto bg-terminal-bg border border-border border-glow rounded-lg p-6">
+        {/* <div className="mt-12 max-w-4xl mx-auto bg-terminal-bg border border-border border-glow rounded-lg p-6">
           <div className="flex items-center gap-2 mb-4">
             <span className="font-mono text-primary">admin@skills:~$</span>
             <span className="font-mono text-muted-foreground">
@@ -104,7 +104,7 @@ const Skills = () => {
               )
             )}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

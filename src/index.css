@@ -8,7 +8,48 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Network/Cyber theme - Dark mode primary */
+    /* Network/Cyber theme - Light mode */
+    --background: 210 45% 99%;
+    --foreground: 220 25% 12%;
+
+    --card: 210 40% 97%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 210 40% 97%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 190 95% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 150 75% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 35% 92%;
+    --muted-foreground: 220 18% 42%;
+
+    --accent: 190 95% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 30% 82%;
+    --input: 210 35% 88%;
+    --ring: 190 95% 38%;
+
+    --radius: 0.5rem;
+
+    /* Custom cyber tokens - Light mode */
+    --cyber-glow: 190 95% 42%;
+    --network-green: 150 75% 40%;
+    --grid-line: 210 25% 86%;
+    --terminal-bg: 210 40% 95%;
+    --surface-elevated: 210 40% 98%;
+    --hover-overlay: 190 95% 42%;
+  }
+
+  .dark {
+    /* Network/Cyber theme - Dark mode */
     --background: 220 20% 5%;
     --foreground: 180 100% 90%;
 
@@ -37,13 +78,13 @@ All colors MUST be HSL.
     --input: 220 15% 15%;
     --ring: 190 100% 50%;
 
-    --radius: 0.5rem;
-
-    /* Custom cyber tokens */
+    /* Custom cyber tokens - Dark mode */
     --cyber-glow: 190 100% 50%;
     --network-green: 150 100% 50%;
     --grid-line: 220 15% 12%;
     --terminal-bg: 220 20% 8%;
+    --surface-elevated: 220 18% 10%;
+    --hover-overlay: 190 100% 50%;
   }
 }
 
@@ -64,11 +105,19 @@ All colors MUST be HSL.
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 10px hsl(var(--cyber-glow) / 0.5), 0 0 20px hsl(var(--cyber-glow) / 0.3);
+    text-shadow: 0 0 12px hsl(var(--cyber-glow) / 0.4), 0 0 24px hsl(var(--cyber-glow) / 0.2);
+  }
+
+  .text-glow-strong {
+    text-shadow: 0 0 15px hsl(var(--cyber-glow) / 0.6), 0 0 30px hsl(var(--cyber-glow) / 0.3), 0 0 45px hsl(var(--cyber-glow) / 0.15);
   }
 
   .border-glow {
-    box-shadow: 0 0 10px hsl(var(--cyber-glow) / 0.3), inset 0 0 10px hsl(var(--cyber-glow) / 0.1);
+    box-shadow: 0 0 12px hsl(var(--cyber-glow) / 0.25), inset 0 0 12px hsl(var(--cyber-glow) / 0.08);
+  }
+
+  .border-glow-strong {
+    box-shadow: 0 0 20px hsl(var(--cyber-glow) / 0.4), inset 0 0 15px hsl(var(--cyber-glow) / 0.12);
   }
 
   .network-grid {
@@ -76,6 +125,28 @@ All colors MUST be HSL.
       linear-gradient(hsl(var(--grid-line)) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--grid-line)) 1px, transparent 1px);
     background-size: 50px 50px;
+  }
+
+  .network-grid-dense {
+    background-image: 
+      linear-gradient(hsl(var(--grid-line)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-line)) 1px, transparent 1px);
+    background-size: 25px 25px;
+  }
+
+  .surface-glass {
+    background: hsl(var(--surface-elevated) / 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .hover-cyber {
+    transition: all 0.3s ease;
+  }
+
+  .hover-cyber:hover {
+    box-shadow: 0 0 20px hsl(var(--hover-overlay) / 0.2);
+    border-color: hsl(var(--hover-overlay) / 0.5);
   }
 }
 
@@ -96,4 +167,14 @@ All colors MUST be HSL.
 @keyframes scan {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100%); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
