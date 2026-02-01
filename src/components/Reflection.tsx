@@ -91,9 +91,13 @@ const Reflection = () => {
                         <ArrowRight size={12} className="text-primary mt-1 flex-shrink-0" />
                         Architectures avancées (MPLS L3VPN, BGP)
                       </li>
+                      <li className="flex items-start gap-2">
+                        <ArrowRight size={12} className="text-primary mt-1 flex-shrink-0" />
+                        Premiers scripts pour automatiser des tâches système simples.
+                      </li>
                     </ul>
                   </div>
-                  {/* BUT 2 */}
+                  {/* BUT 3 */}
                   <div className="relative pl-8">
                     <div className="absolute left-0 top-1 w-4 h-4 rounded-full bg-secondary border-2 border-background shadow-[0_0_10px_hsl(var(--secondary)/0.5)]"></div>
                     <div className="font-mono text-xs text-secondary mb-1 font-semibold">BUT 3 — Montée en compétence</div>
@@ -106,6 +110,10 @@ const Reflection = () => {
                       <li className="flex items-start gap-2">
                         <ArrowRight size={12} className="text-secondary mt-1 flex-shrink-0" />
                         Supervision complète (TIG Stack, IoT)
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ArrowRight size={12} className="text-secondary mt-1 flex-shrink-0" />
+                        Gestion de conteneurs avec Docker Compose
                       </li>
                     </ul>
                   </div>
