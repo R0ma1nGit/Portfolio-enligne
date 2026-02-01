@@ -15,7 +15,7 @@ import topologyAD from "@/assets/ActiveDirectory.png";
 import topologyMQTT from "@/assets/MQTT.png";
 import topologyMPLS from "@/assets/MPLS.png";
 
-type ProjectCategory = "réseau" | "supervision" | "serveur" |"sécurité";
+type ProjectCategory = "réseau" | "supervision" | "serveur" |"projet personnel";
 
 interface Project {
   title: string;
@@ -600,6 +600,7 @@ const Projects = () => {
     { name: "supervision", label: "Supervision", color: "text-green-400" },
     { name: "serveur", label: "Serveur", color: "text-blue-400" },
     // { name: "sécurité", label: "Sécurité", color: "text-red-400" }
+    { name: "projet personnel", label: "Projet Personnel", color: "text-red-400" }
   ];
 
   const filteredProjects = activeCategory === "tous" 
