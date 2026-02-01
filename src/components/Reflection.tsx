@@ -76,6 +76,11 @@ const Reflection = () => {
                         <ArrowRight size={12} className="text-blue-500 mt-1 flex-shrink-0" />
                         Supervision basique (Cacti/SNMP)
                       </li>
+                      <li className="flex items-start gap-2">
+                        <ArrowRight size={12} className="text-blue-500 mt-1 flex-shrink-0" />
+                        Mise en place de serveurs DHCP, DNS et HTTP (Apache/Nginx).
+                      </li>
+                      
                     </ul>
                   </div>
                    {/* BUT 2 */}
