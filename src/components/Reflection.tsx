@@ -131,18 +131,17 @@ const Reflection = () => {
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-secondary"></div>
-                    <h4 className="font-mono font-semibold text-foreground">Sécurité Réseau</h4>
+                    <h4 className="font-mono font-semibold text-foreground">Infrastructures Cloud & Edge</h4>
                   </div>
                   <p className="text-sm text-muted-foreground pl-4">
-                    Approfondir les certifications (CCNA Security, Stormshield CSNE) et maîtriser les audits 
-                    de sécurité avec des outils comme OpenSCAP et Nessus.
+                    Approfondir la gestion des infrastructures Cloud (AWS, Azure) et des services Edge pour optimiser la diffusion de contenus multimédias et la latence des applications.
                   </p>
                   <div className="flex gap-2 pl-4">
                     <span className="px-2 py-0.5 bg-secondary/10 border border-secondary/30 rounded text-xs font-mono text-secondary">
-                      CCNA Security
+                      Cloud Networking
                     </span>
                     <span className="px-2 py-0.5 bg-secondary/10 border border-secondary/30 rounded text-xs font-mono text-secondary">
-                      Pentesting
+                      Edge Computing
                     </span>
                   </div>
                 </div>
