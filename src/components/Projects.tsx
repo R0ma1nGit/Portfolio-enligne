@@ -242,30 +242,30 @@ const Projects = () => {
         technologies: ["MariaDB", "SQL", "Bash", "UFW (Firewall)", "Replication Binlog"]
       }
     },
-    {
-      title: "Sécurisation Périmétrique Stormshield (SN310)",
-      description:
-        "Déploiement d'un pare-feu certifié ANSSI : Segmentation (DMZ), Filtrage et Supervision SNMPv3.",
-      icon: Shield, // Importez 'Shield' de lucide-react
-      skills: ["Stormshield (SNS)", "Firewalling", "IPS/IDS", "SNMPv3", "Matrice de Flux"],
-      color: "secondary", // Rouge pour la sécurité (ou gardez votre code couleur)
-      category: "sécurité",
-      // rapport: "/Rapport_Stormshield_SN310.pdf", // À générer
-      status: "en_cours",
-      detailedDescription: {
-        contexte: "Dans un contexte d'exigence de souveraineté numérique (similaire aux contraintes des OIV/Hôpitaux), l'objectif était de sécuriser l'interconnexion d'un réseau d'entreprise via une solution certifiée ANSSI.",
-        objectif: "Intégrer un pare-feu physique Stormshield SN310 pour segmenter les zones de confiance (LAN, DMZ, WAN) et appliquer une politique de sécurité stricte.",
-        realisation: [
-          "Architecture : Définition des zones et adressage (LAN Interne, DMZ Web, WAN)",
-          "Configuration Système : Mise à jour du firmware SNS, configuration des interfaces et du routage statique",
-          "Politique de Sécurité : Rédaction et implémentation de la matrice de flux (Filtrage applicatif, NAT)",
-          "Gouvernance : Mise en place d'une politique d'authentification forte (Complexité MDP, rotation 90 jours) pour les administrateurs",
-          "Supervision : Configuration de l'agent SNMPv3 (chiffré) pour la remontée d'alertes vers le serveur de monitoring centralisé"
-        ],
-        resultats: "Infrastructure cloisonnée et opérationnelle. Accès aux ressources Web DMZ sécurisé depuis l'extérieur. Conformité aux exigences de traçabilité et d'authentification.",
-        technologies: ["Stormshield SN310", "SNS 4.x", "SNMPv3", "Syslog", "HTTPS/SSH"]
-      }
-    },
+    // {
+    //   title: "Sécurisation Périmétrique Stormshield (SN310)",
+    //   description:
+    //     "Déploiement d'un pare-feu certifié ANSSI : Segmentation (DMZ), Filtrage et Supervision SNMPv3.",
+    //   icon: Shield, // Importez 'Shield' de lucide-react
+    //   skills: ["Stormshield (SNS)", "Firewalling", "IPS/IDS", "SNMPv3", "Matrice de Flux"],
+    //   color: "secondary", // Rouge pour la sécurité (ou gardez votre code couleur)
+    //   category: "sécurité",
+    //   // rapport: "/Rapport_Stormshield_SN310.pdf", // À générer
+    //   status: "en_cours",
+    //   detailedDescription: {
+    //     contexte: "Dans un contexte d'exigence de souveraineté numérique (similaire aux contraintes des OIV/Hôpitaux), l'objectif était de sécuriser l'interconnexion d'un réseau d'entreprise via une solution certifiée ANSSI.",
+    //     objectif: "Intégrer un pare-feu physique Stormshield SN310 pour segmenter les zones de confiance (LAN, DMZ, WAN) et appliquer une politique de sécurité stricte.",
+    //     realisation: [
+    //       "Architecture : Définition des zones et adressage (LAN Interne, DMZ Web, WAN)",
+    //       "Configuration Système : Mise à jour du firmware SNS, configuration des interfaces et du routage statique",
+    //       "Politique de Sécurité : Rédaction et implémentation de la matrice de flux (Filtrage applicatif, NAT)",
+    //       "Gouvernance : Mise en place d'une politique d'authentification forte (Complexité MDP, rotation 90 jours) pour les administrateurs",
+    //       "Supervision : Configuration de l'agent SNMPv3 (chiffré) pour la remontée d'alertes vers le serveur de monitoring centralisé"
+    //     ],
+    //     resultats: "Infrastructure cloisonnée et opérationnelle. Accès aux ressources Web DMZ sécurisé depuis l'extérieur. Conformité aux exigences de traçabilité et d'authentification.",
+    //     technologies: ["Stormshield SN310", "SNS 4.x", "SNMPv3", "Syslog", "HTTPS/SSH"]
+    //   }
+    // },
     {
       title: "Administration Active Directory (Windows Server 2016)",
       description:
