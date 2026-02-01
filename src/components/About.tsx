@@ -36,7 +36,8 @@ const About = () => {
                         📚 Poursuite d'études envisagée :
                       </p>
                       <p className="text-sm text-foreground mt-1">
-                        Master administration systèmes & réseaux (ENSMAG / Polytech / INSA)
+                        Master administration systèmes & réseaux 
+                        (ENSMAG / Polytech / INSA)
                       </p>
                     </div>
                   </div>
