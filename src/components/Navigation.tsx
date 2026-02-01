@@ -24,6 +24,7 @@ const Navigation = () => {
   const navLinks = [
     { id: "accueil", label: "Accueil" },
     { id: "apropos", label: "À propos" },
+    { id: "reflexion", label: "Réflexion" },
     { id: "competences", label: "Compétences" },
     { id: "projets", label: "Projets" },
     { id: "experiences", label: "Expériences" },

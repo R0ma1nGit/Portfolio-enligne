@@ -21,7 +21,7 @@ const About = () => {
                   <div className="p-3 bg-secondary/10 rounded-lg border border-secondary/30">
                     <Target className="text-secondary" size={24} />
                   </div>
-                  <div>
+ <div>
                     <h3 className="font-mono text-xl font-semibold mb-2 text-secondary">
                       Objectif
                     </h3>
@@ -31,6 +31,14 @@ const About = () => {
                     <p className="text-sm text-muted-foreground mt-2">
                       Passionné par les infrastructures IT et la supervision réseau
                     </p>
+                    <div className="mt-3 pt-3 border-t border-border">
+                      <p className="text-xs text-secondary font-mono">
+                        📚 Poursuite d'études envisagée :
+                      </p>
+                      <p className="text-sm text-foreground mt-1">
+                        Master administration systèmes & réseaux (ENSMAG / Polytech / INSA)
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

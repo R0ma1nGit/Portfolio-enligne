@@ -1,4 +1,4 @@
-import { Network, Server, Globe, ArrowRight, Activity, Shield, Cloud, Layers, HardDrive, Lock, FileText, AlertTriangle, Loader2, X, CheckCircle2, ClipboardCheck, Monitor, Wifi, Workflow, Database, Users, Book } from "lucide-react";
+import { Network, Server, Globe, ArrowRight, Activity, Shield, Cloud, Layers, HardDrive, Lock, FileText, AlertTriangle, Loader2, X, CheckCircle2, ClipboardCheck, Monitor, Wifi, Workflow, Database, Users, Book,} from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
@@ -14,7 +14,8 @@ import topologyAnsible from "@/assets/Ansible.png";
 import topologyAD from "@/assets/ActiveDirectory.png";
 import topologyMQTT from "@/assets/MQTT.png";
 import topologyMPLS from "@/assets/MPLS.png";
-
+// import topologyFEEZEN from "@/assets/topology-feezen.png";
+type ProjectYear = "BUT1" | "BUT2" | "BUT3";
 type ProjectCategory = "réseau" | "supervision" | "serveur" |"projet personnel";
 
 interface Project {
@@ -27,6 +28,7 @@ interface Project {
   topology?: string;
   rapport?: string;
   status?: "en_cours" | "termine";
+  annee?: ProjectYear;
   detailedDescription: {
     contexte: string;
     objectif: string;
@@ -35,6 +37,18 @@ interface Project {
     technologies: string[];
   };
 }
+
+// Helper pour le badge année
+const getYearBadgeStyles = (annee: ProjectYear) => {
+  switch (annee) {
+    case "BUT1":
+      return "border-blue-500/50 text-blue-500 bg-blue-500/10";
+    case "BUT2":
+      return "border-primary/50 text-primary bg-primary/10";
+    case "BUT3":
+      return "border-secondary/50 text-secondary bg-secondary/10";
+  }
+};
 
 const Projects = () => {
   const { toast } = useToast();
@@ -70,6 +84,7 @@ const Projects = () => {
     {
       title: "Supervision Réseau avec Cacti & SNMP",
       status: "termine",
+      annee: "BUT1",
       description:
         "Déploiement d'une architecture de supervision sur un réseau virtualisé segmenté (LAN/NAT).",
       icon: Activity,
@@ -103,6 +118,7 @@ const Projects = () => {
       // topology: topologyTIG, // À décommenter si vous ajoutez l'image plus tard
       rapport: "/Rapport_Meteo.pdf", // À ajouter si vous créez le PDF
       status: "termine",
+      annee: "BUT3",
       detailedDescription: {
         contexte: "Besoin de surveiller en temps réel la santé système (CPU) et la qualité réseau (Latence) d'un parc de serveurs Linux répartis géographiquement (Paris, New York, Londres) sur une interface unique.",
         objectif: "Concevoir et déployer une stack de monitoring complète TIG (Telegraf, InfluxDB, Grafana) conteneurisée pour visualiser les métriques et la géolocalisation des actifs.",
@@ -129,6 +145,7 @@ const Projects = () => {
       topology: topologyMQTT,
       rapport: "/Rapport_MQTT.pdf",
       status: "termine",
+      annee: "BUT3",
       detailedDescription: {
         contexte: "L'objectif était de concevoir un système de télémesure environnementale autonome capable non seulement de remonter des données (Température/Humidité) mais aussi d'être piloté à distance.",
         objectif: "Mettre en œuvre une architecture IoT complète (Edge to Cloud) utilisant des protocoles standards (MQTT) et une stack de visualisation conteneurisée.",
@@ -152,6 +169,7 @@ const Projects = () => {
       color: "primary",
       category: "serveur", // ou "réseau" selon votre préférence
       status: "termine",
+      annee: "BUT3",
       topology: topologyAnsible,  
       rapport: "/Rapport_Ansible.pdf",
       detailedDescription: {
@@ -176,6 +194,7 @@ const Projects = () => {
       color: "secondary",
       category: "réseau",
       status: "termine",
+      annee: "BUT2",
       rapport: "/Rapport_Reseau_Linux.pdf",
       // topology: topologyLinuxRouter, // Si vous avez l'image du schéma
       detailedDescription: {
@@ -204,6 +223,7 @@ const Projects = () => {
       topology: topologyMPLS,
       // rapport: "/Rapport_MPLS_L3VPN.pdf",
       status: "termine",
+      annee: "BUT2",
       detailedDescription: {
         contexte: "Simulation d'un cœur de réseau Opérateur (ISP) devant interconnecter les sites distants d'un client ('Carrefour') tout en garantissant une étanchéité totale du trafic vis-à-vis des autres clients.",
         objectif: "Mettre en œuvre une architecture MPLS L3VPN complète : Routage interne (OSPF), Commutation de labels (LDP), Isolation (VRF) et propagation des routes VPNv4 (MP-BGP).",
@@ -227,6 +247,7 @@ const Projects = () => {
       color: "primary",
       category: "serveur", // ou "système"
       status: "termine",
+      annee: "BUT2",
       rapport: "/Rapport_MySQL.pdf", 
       detailedDescription: {
         contexte: "Pour garantir la continuité de service d'une application critique (type E-commerce), une base de données isolée représente un point unique de défaillance (SPOF). Il était nécessaire d'assurer la redondance des données.",
@@ -240,6 +261,57 @@ const Projects = () => {
         ],
         resultats: "Cluster de base de données opérationnel. La réplication bidirectionnelle assure que toute écriture sur le Maître est instantanément propagée sur l'Esclave, garantissant la résilience des données.",
         technologies: ["MariaDB", "SQL", "Bash", "UFW (Firewall)", "Replication Binlog"]
+      }
+    },
+  {
+  title: "Solution Web & Automatisation : Si’La Fée Zen",
+  status: "termine",
+  description: "Plateforme de réservation e-bien-être avec authentification client, base de données relationnelle et automatisation CRM.",
+  icon: Globe,
+  skills: ["Netlify", "Supabase", "Make", "React", "Marketing Automation"],
+  color: "primary",
+  category: "projet personnel",
+  // topology: topologyFEEZEN, 
+  // rapport: "/Rapport_Solution_Web_Zen.pdf",
+  detailedDescription: {
+    contexte: "Une praticienne en bien-être souhaitait professionnaliser son activité : passer d'une prise de rdv manuelle à un écosystème digital gérant ses clientes et son emploi du temps.",
+    objectif: "Créer un écosystème digital automatisé : réservation en ligne, vérification des membres par téléphone et synchronisation des agendas sans intervention humaine.",
+    realisation: [
+      "Déploiement et Hosting : Mise en ligne via Netlify avec pipeline CI/CD (GitHub) pour une haute disponibilité et des mises à jour automatiques.",
+      "Architecture de Données (Supabase) : Conception d'un schéma relationnel SQL pour piloter les réservations et le registre des membres du 'Club Privé'.",
+      "Vérification d'Identité : Authentification par numéro de téléphone pour valider l'accès au club et limiter le spam.",
+      "Automatisation CRM (Make) : Création de workflows pour l'envoi instantané de mails transactionnels et la synchronisation automatique des agendas dès qu'un RDV est pris.",
+      "Dashboard Admin (Back-Office) : Développement d'une interface de gestion privée permettant à la cliente de modérer les adhésions au club et piloter son planning en temps réel.",
+      "Expérience Utilisateur (UX) : Interface React responsive permettant de réserver depuis un smartphone en moins de 3 clics."
+    ],
+    resultats: "Une solution 'clé en main' qui permet à la cliente de se concentrer uniquement sur ses massages, le site gérant toute la partie administrative et logistique.",
+    technologies: ["Netlify", "Supabase Auth", "PostgreSQL", "Make", "React JS", "Node-mailer via Make"]
+  }
+},
+    {
+      title: "Administration Active Directory (Windows Server 2016)",
+      description:
+        "Déploiement d'une infrastructure de domaine : Contrôleur de domaine, Gestion des utilisateurs et Jonction de postes.",
+      icon: Users, // Nécessite l'import de 'Users'
+      skills: ["Active Directory DS", "Windows Server", "DNS", "Gestion IAM", "Virtualisation"],
+      color: "secondary",
+      category: "serveur", // ou "système"
+      topology: topologyAD,
+      status: "termine",
+      annee: "BUT2",
+      rapport: "/Rapport_Active_Directory.pdf", 
+      detailedDescription: {
+        contexte: "Pour centraliser l'administration d'un parc informatique (simulé pour un IUT), il était nécessaire de passer d'une gestion en Workgroup (poste à poste) à une architecture de Domaine centralisée.",
+        objectif: "Installer et configurer un Contrôleur de Domaine (DC) sous Windows Server 2016, structurer l'annuaire et valider l'authentification des clients.",
+        realisation: [
+          "Installation de l'OS Windows Server 2016 et configuration réseau (IP statique, DNS local)",
+          "Promotion du serveur en Contrôleur de Domaine et création de la forêt 'rtdomtest.com'",
+          "Architecture de l'annuaire : Création d'Unités d'Organisation (OU) pour refléter la structure de l'IUT",
+          "Gestion des Identités (IAM) : Création des utilisateurs et des groupes de sécurité (Direction, Enseignant, Étudiant)",
+          "Intégration Client : Configuration DNS des postes de travail et jonction au domaine pour permettre l'ouverture de session unifiée"
+        ],
+        resultats: "Domaine opérationnel avec une base d'utilisateurs structurée. Les postes clients peuvent s'authentifier sur le réseau via le Contrôleur de Domaine.",
+        technologies: ["Windows Server 2016", "AD DS", "DNS", "VirtualBox", "Clonage VM"]
       }
     },
     // {
@@ -266,31 +338,7 @@ const Projects = () => {
     //     technologies: ["Stormshield SN310", "SNS 4.x", "SNMPv3", "Syslog", "HTTPS/SSH"]
     //   }
     // },
-    {
-      title: "Administration Active Directory (Windows Server 2016)",
-      description:
-        "Déploiement d'une infrastructure de domaine : Contrôleur de domaine, Gestion des utilisateurs et Jonction de postes.",
-      icon: Users, // Nécessite l'import de 'Users'
-      skills: ["Active Directory DS", "Windows Server", "DNS", "Gestion IAM", "Virtualisation"],
-      color: "secondary",
-      category: "serveur", // ou "système"
-      topology: topologyAD,
-      status: "termine",
-      rapport: "/Rapport_Active_Directory.pdf", 
-      detailedDescription: {
-        contexte: "Pour centraliser l'administration d'un parc informatique (simulé pour un IUT), il était nécessaire de passer d'une gestion en Workgroup (poste à poste) à une architecture de Domaine centralisée.",
-        objectif: "Installer et configurer un Contrôleur de Domaine (DC) sous Windows Server 2016, structurer l'annuaire et valider l'authentification des clients.",
-        realisation: [
-          "Installation de l'OS Windows Server 2016 et configuration réseau (IP statique, DNS local)",
-          "Promotion du serveur en Contrôleur de Domaine et création de la forêt 'rtdomtest.com'",
-          "Architecture de l'annuaire : Création d'Unités d'Organisation (OU) pour refléter la structure de l'IUT",
-          "Gestion des Identités (IAM) : Création des utilisateurs et des groupes de sécurité (Direction, Enseignant, Étudiant)",
-          "Intégration Client : Configuration DNS des postes de travail et jonction au domaine pour permettre l'ouverture de session unifiée"
-        ],
-        resultats: "Domaine opérationnel avec une base d'utilisateurs structurée. Les postes clients peuvent s'authentifier sur le réseau via le Contrôleur de Domaine.",
-        technologies: ["Windows Server 2016", "AD DS", "DNS", "VirtualBox", "Clonage VM"]
-      }
-    },
+
     // {
     //   title: "Administration d'Annuaire Centralisé (OpenLDAP/Linux)", // Nouveau titre
     //   description:
@@ -661,24 +709,26 @@ const Projects = () => {
                             </div>
 
                             <div className="flex-1 min-w-0">
-                              {/* --- DÉBUT DE L'AJOUT --- */}
-                              {project.status === "en_cours" && (
-                                <div className="flex items-center gap-2 mb-2">
-                                 <Badge variant="outline" className="border-yellow-500/50 text-yellow-500 bg-yellow-500/10 text-[10px] px-2 py-0.5 h-5 font-mono">
-                                     <Loader2 className="w-3 h-3 mr-1 animate-spin" />
-                                       EN COURS
+                              {/* Badges status et année */}
+                              <div className="flex items-center gap-2 mb-2 flex-wrap">
+                                {project.annee && (
+                                  <Badge variant="outline" className={`${getYearBadgeStyles(project.annee)} text-[10px] px-2 py-0.5 h-5 font-mono`}>
+                                    {project.annee}
                                   </Badge>
-                                </div>
-                              )}
-                              {project.status === "termine" && (
-                                <div className="flex items-center gap-2 mb-2">
+                                )}
+                                {project.status === "en_cours" && (
+                                  <Badge variant="outline" className="border-yellow-500/50 text-yellow-500 bg-yellow-500/10 text-[10px] px-2 py-0.5 h-5 font-mono">
+                                    <Loader2 className="w-3 h-3 mr-1 animate-spin" />
+                                    EN COURS
+                                  </Badge>
+                                )}
+                                {project.status === "termine" && (
                                   <Badge variant="outline" className="border-green-500/50 text-green-500 bg-green-500/10 text-[10px] px-2 py-0.5 h-5 font-mono">
                                     <CheckCircle2 className="w-3 h-3 mr-1" />
-                                        TERMINÉ
+                                    TERMINÉ
                                   </Badge>
-                                </div>
-                              )}
-                              {/* --- FIN DE L'AJOUT --- */}
+                                )}
+                              </div>
                               <h4 className="font-mono text-lg font-semibold mb-2 flex items-center gap-2 group-hover:text-primary transition-colors">
                                 {project.title}
                                 <ArrowRight
@@ -745,6 +795,26 @@ const Projects = () => {
                           </div>
 
                           <div className="flex-1 min-w-0">
+                            {/* Badges status et année */}
+                            <div className="flex items-center gap-2 mb-2 flex-wrap">
+                              {project.annee && (
+                                <Badge variant="outline" className={`${getYearBadgeStyles(project.annee)} text-[10px] px-2 py-0.5 h-5 font-mono`}>
+                                  {project.annee}
+                                </Badge>
+                              )}
+                              {project.status === "en_cours" && (
+                                <Badge variant="outline" className="border-yellow-500/50 text-yellow-500 bg-yellow-500/10 text-[10px] px-2 py-0.5 h-5 font-mono">
+                                  <Loader2 className="w-3 h-3 mr-1 animate-spin" />
+                                  EN COURS
+                                </Badge>
+                              )}
+                              {project.status === "termine" && (
+                                <Badge variant="outline" className="border-green-500/50 text-green-500 bg-green-500/10 text-[10px] px-2 py-0.5 h-5 font-mono">
+                                  <CheckCircle2 className="w-3 h-3 mr-1" />
+                                  TERMINÉ
+                                </Badge>
+                              )}
+                            </div>
                             <h4 className="font-mono text-lg font-semibold mb-2 flex items-center gap-2 group-hover:text-primary transition-colors">
                               {project.title}
                               <ArrowRight
